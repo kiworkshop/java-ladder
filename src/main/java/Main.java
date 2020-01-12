@@ -5,6 +5,8 @@ public class Main {
     public static void main(String[] args) {
         List<Person> people = makePeople(Input.inputNames());
         int ladderHeight = Input.inputLadderHeight();
+        Ladder ladder = new Ladder(people, ladderHeight);
+        ladder.printLadder();
 
     }
 
@@ -22,6 +24,4 @@ public class Main {
         return inputString.split(regex);
     }
 
-    private static void makeLadder() {
-    }
 }
