@@ -20,5 +20,8 @@ public class Ladder {
     }
 
     public void printLadder() {
+        for (Line line : ladder) {
+            System.out.println(line.toString());
+        }
     }
 }
