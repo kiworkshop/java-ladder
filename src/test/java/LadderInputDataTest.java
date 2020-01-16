@@ -6,6 +6,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderInputDataTest {
+  public static LadderInputData getLadderInputDataFixture(String name, int height) {
+    List<User> users = ConsoleInputTest.getUsersFixture(name);
+    LadderHeight ladderHeight = LadderHeightTest.getLadderHeightFixture(height);
+    return LadderInputData.of(users, ladderHeight);
+  }
+
   @Test
   void of_ValidInput_ValidOutput() {
     // given

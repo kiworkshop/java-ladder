@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class LadderHeightTest {
+  public static LadderHeight getLadderHeightFixture(int height) {
+    return LadderHeight.of(height);
+  }
+
   @Test
   void of_ValidInput_ValidOutput() {
     // given

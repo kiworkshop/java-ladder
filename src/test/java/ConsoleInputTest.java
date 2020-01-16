@@ -6,6 +6,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ConsoleInputTest {
+  public static List<User> getUsersFixture(String name) {
+    return ConsoleInput.getUsers(Arrays.asList(name.split(",")));
+  }
+
   @Test
   void getUsers_ValidInput_ValidOutput() {
     // given
