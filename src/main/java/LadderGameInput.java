@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -5,12 +6,13 @@ public class LadderGameInput {
 
     public static final String DELIMITER = ",";
 
-    private List<String> playerNames;
+    private List<String> playerNames = new ArrayList<>();
     private int ladderHeight;
 
     public void getPlayerNamesFromInputScanner(InputScanner playerNamesScanner) {
         String playerNamesString = playerNamesScanner.getPlayerNamesFromUser();
-        playerNames = Arrays.asList(playerNamesString.split(DELIMITER));
+        String[] tokens = playerNamesString.split(DELIMITER);
+        playerNames = Arrays.asList(tokens);
     }
 
     public void getLadderHeightFromInputScanner(InputScanner ladderHeightScanner ) {

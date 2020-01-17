@@ -44,15 +44,4 @@ public class InputScannerTest {
         System.setIn(inputStream);
     }
 
-    @Test 
-    public void test() { 
-        // given 
-         
-        // when 
-        
-        // then 
-    
-    }
-    
-
 }

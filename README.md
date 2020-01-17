@@ -14,11 +14,15 @@
 ## To Do
 - ~~input 받기 -> LadderGameInput 클래스로 추상화~~
 - ~~InputScanner 클래스 만들기~~
-- player 클래스 만들기
+- ~~player 클래스 만들기~~
+- ~~InputValidator 클래스 만들기~~
 - ladder 클래스 만들기
 - ladderGame 클래스 만들기
 - output(실행결과) 출력하기
     - 1x1 출력
     - 2x3 출력
     - 4x5 출력
+- LadderGameResultFirstLine
+- LadderGameResultLine
+
   

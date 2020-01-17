@@ -9,6 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderGameInputTest {
 
+    private static final String DELIMITER = ",";
+
     @Test
     public void testGetSingleNameFromInputScanner() {
         // given
@@ -17,7 +19,7 @@ public class LadderGameInputTest {
 
         LadderGameInput input = new LadderGameInput();
 
-        List<String> playerName = Arrays.asList(inputString.split(","));
+        List<String> playerName = Arrays.asList(inputString.split(DELIMITER));
 
         // when
         input.getPlayerNamesFromInputScanner(input.generateInputScanner());
@@ -36,7 +38,7 @@ public class LadderGameInputTest {
 
         LadderGameInput input = new LadderGameInput();
 
-        List<String> playerNames = Arrays.asList(inputString.split(","));
+        List<String> playerNames = Arrays.asList(inputString.split(DELIMITER));
 
         // when
         input.getPlayerNamesFromInputScanner(input.generateInputScanner());
