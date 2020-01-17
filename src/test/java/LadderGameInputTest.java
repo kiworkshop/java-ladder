@@ -17,17 +17,15 @@ public class LadderGameInputTest {
         String inputString = "태식";
         setInputStream(inputString);
 
-        LadderGameInput input = new LadderGameInput();
-
-        List<String> playerName = Arrays.asList(inputString.split(DELIMITER));
+        List<String> expectedPlayerName = Arrays.asList(inputString.split(DELIMITER));
 
         // when
-        input.getPlayerNamesFromInputScanner(input.generateInputScanner());
+        List<String> playerName = LadderGameInput.getPlayerNamesFromInputScanner(new InputScanner());
 
         // then
-        assertThat(input.getPlayerNames())
+        assertThat(playerName)
                 .isNotNull()
-                .isEqualTo(playerName);
+                .isEqualTo(expectedPlayerName);
     }
 
     @Test
@@ -36,17 +34,15 @@ public class LadderGameInputTest {
         String inputString = "태식,태식이,태식삼";
         setInputStream(inputString);
 
-        LadderGameInput input = new LadderGameInput();
-
-        List<String> playerNames = Arrays.asList(inputString.split(DELIMITER));
+        List<String> expectedPlayerNames = Arrays.asList(inputString.split(DELIMITER));
 
         // when
-        input.getPlayerNamesFromInputScanner(input.generateInputScanner());
+        List<String> playerNames = LadderGameInput.getPlayerNamesFromInputScanner(new InputScanner());
 
         // then
-        assertThat(input.getPlayerNames())
+        assertThat(playerNames)
                 .isNotNull()
-                .isEqualTo(playerNames);
+                .isEqualTo(expectedPlayerNames);
     }
 
     @Test
@@ -55,13 +51,11 @@ public class LadderGameInputTest {
         String inputString = "2";
         setInputStream(inputString);
 
-        LadderGameInput input = new LadderGameInput();
-
         // when
-        input.getLadderHeightFromInputScanner(input.generateInputScanner());
+        int ladderHeight = LadderGameInput.getLadderHeightFromInputScanner(new InputScanner());
 
         // then
-        assertThat(input.getLadderHeight())
+        assertThat(ladderHeight)
                 .isNotNull()
                 .isEqualTo(2);
     }

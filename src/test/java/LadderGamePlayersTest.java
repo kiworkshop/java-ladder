@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class LadderGamePlayersTest {
 
@@ -16,8 +15,10 @@ public class LadderGamePlayersTest {
         String inputString= "태식,태식이,태식삼";
         List<String> playerNames = Arrays.asList(inputString.split(DELIMITER));
 
+        LadderGamePlayers.calculatePlayerCount(playerNames);
+
         // when
-        int playerCount = LadderGamePlayers.getPlayerCount(playerNames);
+        int playerCount = LadderGamePlayers.getPlayerCount();
 
         // then
         assertThat(playerCount)
@@ -25,8 +26,5 @@ public class LadderGamePlayersTest {
                 .isEqualTo(3);
 
     }
-
-
-
 
 }

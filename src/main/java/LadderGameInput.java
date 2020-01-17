@@ -6,28 +6,32 @@ public class LadderGameInput {
 
     public static final String DELIMITER = ",";
 
-    private List<String> playerNames = new ArrayList<>();
-    private int ladderHeight;
+    private static List<String> playerNames = new ArrayList<>();
+    private static int ladderHeight;
 
-    public void getPlayerNamesFromInputScanner(InputScanner playerNamesScanner) {
+    public static List<String> getPlayerNamesFromInputScanner(InputScanner playerNamesScanner) {
         String playerNamesString = playerNamesScanner.getPlayerNamesFromUser();
-        String[] tokens = playerNamesString.split(DELIMITER);
-        playerNames = Arrays.asList(tokens);
+        return covertStringToArrayList(playerNamesString);
     }
 
-    public void getLadderHeightFromInputScanner(InputScanner ladderHeightScanner ) {
-        ladderHeight = ladderHeightScanner.getLadderHeightFromUser();
+    public static List<String> covertStringToArrayList(String playerNamesString) {
+        String[] tokens = generateStringTokensByDelimiter(playerNamesString);
+        return playerNames = Arrays.asList(tokens);
     }
 
-    public InputScanner generateInputScanner() {
-        return new InputScanner();
+    public static String[] generateStringTokensByDelimiter(String playerNamesString) {
+        return playerNamesString.split(DELIMITER);
     }
 
-    public List<String> getPlayerNames() {
+    public static int getLadderHeightFromInputScanner(InputScanner ladderHeightScanner) {
+        return ladderHeight = ladderHeightScanner.getLadderHeightFromUser();
+    }
+
+    public static List<String> getPlayerNames() {
         return playerNames;
     }
 
-    public int getLadderHeight() {
+    public static int getLadderHeight() {
         return ladderHeight;
     }
 }

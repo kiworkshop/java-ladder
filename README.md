@@ -16,13 +16,13 @@
 - ~~InputScanner 클래스 만들기~~
 - ~~player 클래스 만들기~~
 - ~~InputValidator 클래스 만들기~~
-- ladder 클래스 만들기
-- ladderGame 클래스 만들기
+- ~~Ladder 클래스 만들기~~
+- LadderGame 클래스 만들기
 - output(실행결과) 출력하기
     - 1x1 출력
     - 2x3 출력
     - 4x5 출력
 - LadderGameResultFirstLine
 - LadderGameResultLine
-
+- LadderGameInput을 LadderHeight과 LadderGamePlayer로 쪼개기
   

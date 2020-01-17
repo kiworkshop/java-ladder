@@ -8,7 +8,7 @@ public class InputValidator {
     public static void validatePlayerNames(List<String> playerNames) {
         for (String playerName : playerNames) {
             int playerNameLength = getPlayerNameLength(playerName);
-            IsSmallerThanCriterion(playerNameLength);
+            validatePlayerNameLength(playerNameLength);
         }
     }
 
@@ -16,7 +16,7 @@ public class InputValidator {
         return playerName.length();
     }
 
-    public static void IsSmallerThanCriterion(int playerNameLength) {
+    public static void validatePlayerNameLength(int playerNameLength) {
         if (playerNameLength > PLAYER_NAME_MAX_LENGTH) {
             throw (new IllegalArgumentException(ERROR_MESSAGE_NAME_LENGTH_EXCEEDED));
         }
