@@ -14,6 +14,10 @@ public class Line {
     return new Line(startPosition, startPosition + 1);
   }
 
+  public boolean isStartingWith(int position) {
+    return startPosition == position;
+  }
+
   public int getStartPosition() {
     return startPosition;
   }

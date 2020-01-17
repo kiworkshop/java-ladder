@@ -2,6 +2,9 @@ import java.util.List;
 
 public class LadderGame {
 
+  public static final String BLANK_BETWEEN_NAMES = "  ";
+  public static final String NEXT = "\n";
+
   private List<User> users;
   private LadderHeight height;
   private LadderGenerator ladderGenerator;
@@ -38,5 +41,26 @@ public class LadderGame {
 
   public Ladder getLadder() {
     return ladder;
+  }
+
+  public void showLadderGame() {
+    showUsers();
+    showLadder();
+  }
+
+  private void showUsers() {
+    for (User user: users) {
+      user.showUserName();
+      System.out.print(BLANK_BETWEEN_NAMES);
+    }
+    moveToNextRow();
+  }
+
+  private void moveToNextRow() {
+    System.out.print(NEXT);
+  }
+
+  private void showLadder() {
+    ladder.show();
   }
 }

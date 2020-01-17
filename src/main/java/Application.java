@@ -3,5 +3,6 @@ public class Application {
     LadderInputData ladderInputData = ConsoleInput.getLadderData();
     LadderGame ladderGame = LadderGame.with(ladderInputData, new RandomRowGeneratorStrategy());
     ladderGame.generateLadder();
+    ladderGame.showLadderGame();
   }
 }

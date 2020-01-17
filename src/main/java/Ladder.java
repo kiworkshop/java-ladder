@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Ladder {
@@ -15,5 +14,9 @@ public class Ladder {
 
   public List<Row> getRows() {
     return rows;
+  }
+
+  public void show() {
+    rows.forEach(Row::show);
   }
 }

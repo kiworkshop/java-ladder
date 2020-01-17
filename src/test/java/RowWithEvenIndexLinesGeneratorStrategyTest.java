@@ -6,8 +6,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RowWithEvenIndexLinesGeneratorStrategyTest {
-  public static Row getEvenIndexRowFixture(int numOfLines) {
-    return Row.of(getEvenIndexLinesFixture(numOfLines));
+  public static Row getEvenIndexRowFixture(int lenOfRow) {
+    return Row.of(lenOfRow, getEvenIndexLinesFixture(lenOfRow));
   }
 
   public static List<Line> getEvenIndexLinesFixture(int numOfLines) {

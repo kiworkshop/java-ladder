@@ -14,7 +14,7 @@ public class RowWithEvenIndexLinesGeneratorStrategy implements RowGeneratorStrat
   }
 
   @Override
-  public Row generateRow(int numOfColumn) {
-    return Row.of(generateLines(numOfColumn));
+  public Row generateRow(int lenOfRow) {
+    return Row.of(lenOfRow, generateLines(lenOfRow));
   }
 }

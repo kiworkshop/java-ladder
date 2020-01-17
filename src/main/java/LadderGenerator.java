@@ -15,15 +15,16 @@ public class LadderGenerator {
 
   public List<Row> generateRows(int numOfColumn, int height) {
     List<Row> rows = new ArrayList<>();
+    int lenOfRow = numOfColumn - 1;
     for (int i=0; i<height; i++) {
-      Row row = rowGeneratorStrategy.generateRow(numOfColumn);
+      Row row = rowGeneratorStrategy.generateRow(lenOfRow);
       rows.add(row);
     }
     return rows;
   }
 
-  public Ladder generateLadder(int numOfColumn, int height) {
-    return Ladder.with(generateRows(numOfColumn, height));
+  public Ladder generateLadder(int lenOfRow, int height) {
+    return Ladder.with(generateRows(lenOfRow, height));
   }
 
   public RowGeneratorStrategy getRowGeneratorStrategy() {

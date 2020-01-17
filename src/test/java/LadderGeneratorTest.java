@@ -8,12 +8,12 @@ public class LadderGeneratorTest {
   @Test
   void generateLadder_InputManualStrategy() {
     // given
-    int numOfColumn = 3;
+    int numOfGenerableColumn = 3;
     int height = 4;
     LadderGenerator ladderGenerator = LadderGenerator.with(new RowWithEvenIndexLinesGeneratorStrategy());
-    Row RowWithEvenIndexLinesFixture = RowWithEvenIndexLinesGeneratorStrategyTest.getEvenIndexRowFixture(numOfColumn);
+    Row RowWithEvenIndexLinesFixture = RowWithEvenIndexLinesGeneratorStrategyTest.getEvenIndexRowFixture(numOfGenerableColumn);
     // when
-    Ladder ladder = ladderGenerator.generateLadder(numOfColumn, height);
+    Ladder ladder = ladderGenerator.generateLadder(numOfGenerableColumn, height);
     // then
     assertThat(ladder.getRows()).hasSize(height);
     assertThat(ladder.getRows()).contains(RowWithEvenIndexLinesFixture);
@@ -22,12 +22,12 @@ public class LadderGeneratorTest {
   @Test
   void generateRows_InputManualStrategy() {
     // given
-    int numOfColumn = 3;
-    int numOfEvenIndexLines = numOfColumn / 2 + 1;
+    int numOfGenerableColumn = 3;
+    int numOfEvenIndexLines = numOfGenerableColumn / 2 + 1;
     int height = 4;
     LadderGenerator ladderGenerator = LadderGenerator.with(new RowWithEvenIndexLinesGeneratorStrategy());
     // when
-    List<Row> rows = ladderGenerator.generateRows(numOfColumn, height);
+    List<Row> rows = ladderGenerator.generateRows(numOfGenerableColumn, height);
     // then
     assertThat(rows).hasSize(height);
     assertThat(rows.get(0).getLines()).hasSize(numOfEvenIndexLines);
