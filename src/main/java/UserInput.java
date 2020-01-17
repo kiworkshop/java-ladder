@@ -5,8 +5,13 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class UserInput {
-  private List<UserName> userNames = new ArrayList<>();
+  private List<User> users = new ArrayList<>();
   private int height;
+
+  public UserInput(List<User> users, int height) {
+    this.users = users;
+    this.height = height;
+  }
 
   public UserInput getUserInput() {
     getUserNames();
@@ -19,12 +24,20 @@ public class UserInput {
     Scanner scan = new Scanner(System.in);
     String nameInput = scan.nextLine();
     String[] nameArr = nameInput.split(",");
-    userNames.addAll(Arrays.stream(nameArr).map(UserName::of).collect(Collectors.toList()));
+    users.addAll(Arrays.stream(nameArr).map(User::of).collect(Collectors.toList()));
   }
 
   private void getLadderHeight() {
     System.out.println("사다리 높이는?");
     Scanner scan = new Scanner(System.in);
     height = scan.nextInt();
+  }
+
+  public List<User> getUsers() {
+    return users;
+  }
+
+  public int getHeight() {
+    return height;
   }
 }

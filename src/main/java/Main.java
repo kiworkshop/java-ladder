@@ -1,4 +1,6 @@
 public class Main {
   UserInput userInput = new UserInput().getUserInput();
-  LadderGame ladderGame = LadderGame.from(userInput);
+  LadderGameStarter ladderGameStarter = LadderGameStarter.from(userInput);
+  LadderGame ladderGame = ladderGameStarter.createLadderGame();
+
 }

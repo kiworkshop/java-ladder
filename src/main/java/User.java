@@ -1,16 +1,16 @@
-public class UserName {
+public class User {
   private String name;
 
-  private UserName(String name) {
+  private User(String name) {
     this.name = name;
-    validate(name);
+    validateName(name);
   }
 
-  public static UserName of(String name) {
-    return new UserName(name);
+  public static User of(String name) {
+    return new User(name);
   }
 
-  private void validate(String name) {
+  private void validateName(String name) {
     if (name.length() > 6) {
       throw new IllegalArgumentException("이름은 5글자를 초과할 수 없습니다.");
     }
