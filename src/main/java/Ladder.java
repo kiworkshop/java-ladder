@@ -20,6 +20,10 @@ public class Ladder {
     }
 
     public void printLadder() {
+        for (Person person : people) {
+            System.out.printf("%-6s", person.getName());
+        }
+        System.out.println();
         for (Line line : ladder) {
             System.out.println(line.toString());
         }

@@ -4,16 +4,18 @@ import java.util.Random;
 
 public class Line {
 
+    public static final String BAR_VERTICAL = "|";
+    public static final double BAR_EXIST_PERCENTAGE = 0.5;
     private int barNumber;
     private List<Bar> bars;
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("|");
+        stringBuilder.append(BAR_VERTICAL);
         for (Bar bar : bars) {
             stringBuilder.append(bar.toString());
-            stringBuilder.append("|");
+            stringBuilder.append(BAR_VERTICAL);
         }
         return stringBuilder.toString();
     }
@@ -42,7 +44,7 @@ public class Line {
     }
 
     private boolean getRandomBoolean() {
-        return Math.random() > 0.5;
+        return Math.random() > BAR_EXIST_PERCENTAGE;
     }
 
 }

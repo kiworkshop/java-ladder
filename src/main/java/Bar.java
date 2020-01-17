@@ -1,5 +1,7 @@
 public class Bar {
 
+    public static final String BAR_EXIST = "-----";
+    public static final String BAR_NOT_EXIST = "     ";
     private boolean barExist;
 
     public Bar(boolean barExist) {
@@ -13,8 +15,8 @@ public class Bar {
     @Override
     public String toString() {
         if (barExist) {
-            return "-----";
+            return BAR_EXIST;
         }
-        return "     ";
+        return BAR_NOT_EXIST;
     }
 }
