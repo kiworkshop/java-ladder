@@ -3,14 +3,22 @@ import java.util.List;
 
 public class LadderGame {
   private List<Row> rows = new ArrayList<>();
-  private List<LadderPoint> ladderPoints = new ArrayList<>();
 
-  private LadderGame(List<Row> rows, List<LadderPoint> ladderPoints) {
+  private LadderGame(List<Row> rows) {
     this.rows = rows;
-    this.ladderPoints = ladderPoints;
   }
 
   public static LadderGame of(List<Row> rows, List<LadderPoint> ladderPoints) {
-    return new LadderGame(rows, ladderPoints);
+    for (Row row : rows) {
+      row.drawLadderLines(ladderPoints);
+    }
+    return new LadderGame(rows);
+  }
+
+  public void printResults() {
+    for (Row row : rows) {
+      row.print();
+      System.out.println();
+    }
   }
 }

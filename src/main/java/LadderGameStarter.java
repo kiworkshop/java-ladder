@@ -42,4 +42,11 @@ public class LadderGameStarter {
     }
     return rand;
   }
+
+  public void printUsers() {
+    for (User user: users) {
+      System.out.print("  " + user + "\t  ");
+    }
+    System.out.println();
+  }
 }

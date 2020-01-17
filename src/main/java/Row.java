@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import toStash.Point;
-
 public class Row {
   private int rowNum;
   private List<Point> points = new ArrayList<>();
@@ -14,12 +12,16 @@ public class Row {
     }
   }
 
-  public void drawLadderLine(List<LadderPoint> ladderPoints) {
+  public void drawLadderLines(List<LadderPoint> ladderPoints) {
     for (LadderPoint ladderPoint : ladderPoints) {
-      if (ladderPoint.getY() == rowNum) {
-        points.get(ladderPoint.getX() - 1).toConnected();
-        points.get(ladderPoint.getX()).toConnected();
-      }
+      drawLadderLine(ladderPoint);
+    }
+  }
+
+  private void drawLadderLine(LadderPoint ladderPoint) {
+    if (ladderPoint.getY() == rowNum) {
+      points.get(ladderPoint.getX() - 1).toConnected();
+      points.get(ladderPoint.getX()).toConnected();
     }
   }
 

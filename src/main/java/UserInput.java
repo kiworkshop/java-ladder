@@ -8,6 +8,8 @@ public class UserInput {
   private List<User> users = new ArrayList<>();
   private int height;
 
+  public UserInput(){}
+
   public UserInput(List<User> users, int height) {
     this.users = users;
     this.height = height;
