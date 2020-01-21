@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class UserInput {
+  private static final String DELIMITER = ",";
   private List<User> users = new ArrayList<>();
   private int height;
 
@@ -25,7 +26,7 @@ public class UserInput {
     System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
     Scanner scan = new Scanner(System.in);
     String nameInput = scan.nextLine();
-    String[] nameArr = nameInput.split(",");
+    String[] nameArr = nameInput.split(DELIMITER);
     users.addAll(Arrays.stream(nameArr).map(User::of).collect(Collectors.toList()));
   }
 

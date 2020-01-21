@@ -16,15 +16,20 @@ public class LadderGameStarter {
   }
 
   public LadderGame createLadderGame() {
-    List<Row> rows = new ArrayList<>();
-    for (int i = 0; i < height; i++) {
-      rows.add(new Row(i, users.size()));
-    }
+    List<Row> rows = generateRows();
     List<LadderPoint> ladderPoints = generateLadderPoints();
     return LadderGame.of(rows, ladderPoints);
   }
 
-  public List<LadderPoint> generateLadderPoints() {
+  private List<Row> generateRows() {
+    List<Row> rows = new ArrayList<>();
+    for (int i = 0; i < height; i++) {
+      rows.add(new Row(i, users.size()));
+    }
+    return rows;
+  }
+
+  private List<LadderPoint> generateLadderPoints() {
     List<LadderPoint> ladderPoints = new ArrayList<>();
     int prevNum = -1;
     for (int i = 1; i < users.size(); i++) {
@@ -36,6 +41,9 @@ public class LadderGameStarter {
   }
 
   int generateRandomNum(int bound, int excludingNum) {
+    if (bound < excludingNum) {
+      throw new IllegalArgumentException("excluding number cannot exceed bound");
+    }
     int rand = new Random().nextInt(bound);
     if (excludingNum == rand) {
       return generateRandomNum(bound, excludingNum);

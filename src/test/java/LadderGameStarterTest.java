@@ -33,10 +33,10 @@ public class LadderGameStarterTest {
 
   public LadderGameStarter getGameStarterFixture() {
     List<User> users = new ArrayList<>();
-    users.add(User.of("myang1"));
-    users.add(User.of("myang2"));
-    users.add(User.of("myang3"));
-    users.add(User.of("myang4"));
+    users.add(User.of("name1"));
+    users.add(User.of("name2"));
+    users.add(User.of("name3"));
+    users.add(User.of("name4"));
     int height = 5;
     UserInput userInput = new UserInput(users, height);
     return LadderGameStarter.from(userInput);
