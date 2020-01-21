@@ -1,17 +1,22 @@
 public class Point {
-  private boolean isConnected;
+  private boolean isBarStart;
+  private boolean isBarEnd;
 
   public Point() {}
 
-  public Point(boolean isConnected) {
-    this.isConnected = isConnected;
+  public void toBarStart() {
+    this.isBarStart = true;
   }
 
-  public void toConnected() {
-    this.isConnected = true;
+  public void toBarEnd() {
+    this.isBarEnd = true;
   }
 
-  public boolean isConnected() {
-    return isConnected;
+  public boolean isBarStart() {
+    return this.isBarStart;
+  }
+
+  public boolean isBarEnd() {
+    return this.isBarEnd;
   }
 }

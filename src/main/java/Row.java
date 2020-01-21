@@ -20,20 +20,20 @@ public class Row {
 
   private void drawLadderLine(LadderPoint ladderPoint) {
     if (ladderPoint.getY() == rowNum) {
-      points.get(ladderPoint.getX() - 1).toConnected();
-      points.get(ladderPoint.getX()).toConnected();
+      points.get(ladderPoint.getX() - 1).toBarStart();
+      points.get(ladderPoint.getX()).toBarEnd();
     }
   }
 
   public void print() {
-    boolean prev = false;
+    Point prev = new Point();
     for (Point point : points) {
-      if (point.isConnected() && prev) {
+      if (point.isBarEnd() && prev.isBarStart()) {
         System.out.print("------ |");
       } else {
         System.out.print("\t   |");
       }
-      prev = point.isConnected();
+      prev = point;
     }
   }
 }
