@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 public class UserInput {
   private static final String DELIMITER = ",";
   private List<User> users = new ArrayList<>();
+  private List<ResultOption> resultOptions = new ArrayList<>();
   private int height;
 
   public UserInput(){}
@@ -19,6 +20,7 @@ public class UserInput {
   public UserInput getUserInput() {
     getUserNames();
     getLadderHeight();
+    getResultOptions();
     return this;
   }
 
@@ -36,11 +38,33 @@ public class UserInput {
     height = scan.nextInt();
   }
 
+  private void getResultOptions() {
+    System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+    Scanner scan = new Scanner(System.in);
+    String nameInput = scan.nextLine();
+    String[] nameArr = nameInput.split(DELIMITER);
+    resultOptions.addAll(Arrays.stream(nameArr).map(ResultOption::of).collect(Collectors.toList()));
+  }
+
   public List<User> getUsers() {
     return users;
   }
 
   public int getHeight() {
     return height;
+  }
+
+  public void printUsers() {
+    for (User user: users) {
+      System.out.print("  " + user + "\t  ");
+    }
+    System.out.println();
+  }
+
+  public void printResultOptions() {
+    for (ResultOption result : resultOptions) {
+      System.out.print("  " + result + "\t  ");
+    }
+    System.out.println();
   }
 }

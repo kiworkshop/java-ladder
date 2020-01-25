@@ -4,7 +4,9 @@ public class Main {
     UserInput userInput = new UserInput().getUserInput();
     LadderGameStarter ladderGameStarter = LadderGameStarter.from(userInput);
     LadderGame ladderGame = ladderGameStarter.createLadderGame();
-    ladderGameStarter.printUsers();
-    ladderGame.printResults();
+    userInput.printUsers();
+    ladderGame.printLadders();
+    userInput.printResultOptions();
+    ladderGame.showResults();
   }
 }

@@ -15,7 +15,7 @@ public class LadderGame {
     return new LadderGame(rows);
   }
 
-  public void printResults() {
+  public void printLadders() {
     for (Row row : rows) {
       row.print();
       System.out.println();

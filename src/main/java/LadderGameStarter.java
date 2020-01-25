@@ -3,11 +3,11 @@ import java.util.List;
 import java.util.Random;
 
 public class LadderGameStarter {
-  private List<User> users = new ArrayList<>();
+  private int width;
   private int height;
 
   private LadderGameStarter(UserInput userInput) {
-    this.users = userInput.getUsers();
+    this.width = userInput.getUsers().size();
     this.height = userInput.getHeight();
   }
 
@@ -24,7 +24,7 @@ public class LadderGameStarter {
   private List<Row> generateRows() {
     List<Row> rows = new ArrayList<>();
     for (int i = 0; i < height; i++) {
-      rows.add(new Row(i, users.size()));
+      rows.add(new Row(i, width));
     }
     return rows;
   }
@@ -32,7 +32,7 @@ public class LadderGameStarter {
   private List<LadderPoint> generateLadderPoints() {
     List<LadderPoint> ladderPoints = new ArrayList<>();
     List<Integer> prevRandomNumbers = new ArrayList<>();
-    for (int i = 1; i < users.size(); i++) {
+    for (int i = 1; i < width; i++) {
       List<Integer> randomNumbers = generateRandomNumbers(height, prevRandomNumbers);
       for (Integer rand : randomNumbers) {
         ladderPoints.add(new LadderPoint(i, rand));
@@ -59,10 +59,4 @@ public class LadderGameStarter {
     return rand;
   }
 
-  public void printUsers() {
-    for (User user: users) {
-      System.out.print("  " + user + "\t  ");
-    }
-    System.out.println();
-  }
 }
