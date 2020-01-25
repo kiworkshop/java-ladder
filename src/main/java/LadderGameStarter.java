@@ -31,22 +31,30 @@ public class LadderGameStarter {
 
   private List<LadderPoint> generateLadderPoints() {
     List<LadderPoint> ladderPoints = new ArrayList<>();
-    int prevNum = -1;
+    List<Integer> prevRandomNumbers = new ArrayList<>();
     for (int i = 1; i < users.size(); i++) {
-      int rand = generateRandomNum(height, prevNum);
-      ladderPoints.add(new LadderPoint(i, rand));
-      prevNum = rand;
+      List<Integer> randomNumbers = generateRandomNumbers(height, prevRandomNumbers);
+      for (Integer rand : randomNumbers) {
+        ladderPoints.add(new LadderPoint(i, rand));
+      }
+      prevRandomNumbers = randomNumbers;
     }
     return ladderPoints;
   }
 
-  int generateRandomNum(int bound, int excludingNum) {
-    if (bound < excludingNum) {
-      throw new IllegalArgumentException("excluding number cannot exceed bound");
+  List<Integer> generateRandomNumbers(int bound, List<Integer> excludingNums) {
+    List<Integer> randomNumbers = new ArrayList<>();
+    int numOfRandomNumbers = generateRandomNum(bound - excludingNums.size(), new ArrayList<>());
+    for (int i = 0; i < numOfRandomNumbers; i++) {
+      randomNumbers.add(generateRandomNum(bound, excludingNums));
     }
+    return randomNumbers;
+  }
+
+  int generateRandomNum(int bound, List<Integer> excludingNums) {
     int rand = new Random().nextInt(bound);
-    if (excludingNum == rand) {
-      return generateRandomNum(bound, excludingNum);
+    if (excludingNums.contains(rand) || rand == 0) {
+      return generateRandomNum(bound, excludingNums);
     }
     return rand;
   }
