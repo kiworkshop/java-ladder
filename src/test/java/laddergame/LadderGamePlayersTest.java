@@ -1,3 +1,6 @@
+package laddergame;
+
+import laddergame.domain.LadderGamePlayers;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

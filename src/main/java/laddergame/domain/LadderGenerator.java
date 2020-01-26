@@ -1,3 +1,5 @@
+package laddergame.domain;
+
 import java.util.List;
 
 public class LadderGenerator {

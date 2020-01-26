@@ -1,3 +1,7 @@
+package laddergame;
+
+import laddergame.domain.LadderGameInput;
+import laddergame.view.InputScanner;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

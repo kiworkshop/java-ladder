@@ -1,5 +1,11 @@
+package laddergame;
+
+import laddergame.domain.LadderGameInput;
+import laddergame.domain.LadderGamePlayers;
+import laddergame.domain.Point;
+import laddergame.domain.PointsGenerator;
+import laddergame.view.InputScanner;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

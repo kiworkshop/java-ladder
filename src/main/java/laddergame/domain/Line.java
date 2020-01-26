@@ -1,3 +1,5 @@
+package laddergame.domain;
+
 import java.util.Objects;
 
 public class Line {
@@ -28,7 +30,7 @@ public class Line {
 
     @Override
     public String toString() {
-        return "Line{" +
+        return "laddergame.domain.Line{" +
                 "leftPoint=" + leftPoint +
                 ", rightPoint=" + rightPoint +
                 ", exists=" + exists +

@@ -1,4 +1,8 @@
-import java.util.ArrayList;
+package laddergame.view;
+
+import laddergame.domain.Ladder;
+import laddergame.domain.LadderGameInput;
+
 import java.util.List;
 
 public class LadderGamePrinter {
@@ -19,7 +23,7 @@ public class LadderGamePrinter {
 
     }
 
-    private static List<Line> generateRow(int rowIndex) {
+    private static void generateRow(int rowIndex) {
 
     }
 

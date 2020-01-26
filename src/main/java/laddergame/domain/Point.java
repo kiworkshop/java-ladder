@@ -1,3 +1,5 @@
+package laddergame.domain;
+
 import java.util.Objects;
 
 public class Point {
@@ -26,7 +28,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "laddergame.domain.Point{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

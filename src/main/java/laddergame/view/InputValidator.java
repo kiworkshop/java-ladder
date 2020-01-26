@@ -1,3 +1,5 @@
+package laddergame.view;
+
 import java.util.List;
 
 public class InputValidator {

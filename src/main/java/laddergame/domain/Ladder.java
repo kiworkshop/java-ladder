@@ -1,3 +1,5 @@
+package laddergame.domain;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +30,7 @@ public class Ladder {
 
     @Override
     public String toString() {
-        return "Ladder{" +
+        return "laddergame.domain.Ladder{" +
                 "lines=" + lines +
                 '}';
     }

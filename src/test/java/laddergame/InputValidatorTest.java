@@ -1,3 +1,6 @@
+package laddergame;
+
+import laddergame.view.InputValidator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

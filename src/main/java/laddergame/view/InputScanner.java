@@ -1,3 +1,5 @@
+package laddergame.view;
+
 import java.util.Scanner;
 
 public class InputScanner {
@@ -16,7 +18,7 @@ public class InputScanner {
     public int getLadderHeightFromUser() {
         System.out.println(MESSAGE_GET_LADDER_HEIGHT);
         return Integer.parseInt(scanner.nextLine());
-    }
+}
 
     public static void printSeparationLine() {
         System.out.println(EMPTY_LINE);

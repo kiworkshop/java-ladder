@@ -1,3 +1,7 @@
+package laddergame.domain;
+
+import laddergame.view.InputScanner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
