@@ -1,17 +1,15 @@
 package laddergame.controller;
 
 import laddergame.domain.Ladder;
-import laddergame.domain.LadderGameInput;
-import laddergame.domain.LadderGamePlayers;
-import laddergame.domain.LadderGenerator;
-import laddergame.view.InputScanner;
-import laddergame.view.InputValidator;
+import laddergame.domain.LadderHeight;
+import laddergame.domain.player.Players;
+import laddergame.service.LadderGameService;
 import laddergame.view.InputView;
-import laddergame.view.LadderGamePrinter;
 
 public class LadderGameController {
 
     private final InputView inputView;
+    private final LadderGameService ladderGameService = new LadderGameService();
 
     public LadderGameController(InputView inputView) {
         this.inputView = inputView;
@@ -19,17 +17,12 @@ public class LadderGameController {
 
     public void run() {
         String playerNames = inputView.getPlayerNamesFromConsole();
-        InputValidator.validatePlayerNames(playerNames);
-        InputScanner.printSeparationLine();
+        Players players = ladderGameService.createPlayers(playerNames);
 
-        int ladderHeight = LadderGameInput.getLadderHeightFromInputScanner(new InputScanner());
-        InputScanner.printSeparationLine();
+        int ladderHeightInput = inputView.getLadderHeightFromConsole();
+        LadderHeight ladderHeight = ladderGameService.createLadderHeight(ladderHeightInput);
 
-        LadderGamePlayers.calculatePlayerCount(playerNames);
-        int playerCount = LadderGamePlayers.getPlayerCount();
+        Ladder ladder = ladderGameService.createLadder(players, ladderHeight);
 
-        Ladder ladder = LadderGenerator.generateLadder();
-
-        LadderGamePrinter.printLadderGame(ladder);
     }
 }

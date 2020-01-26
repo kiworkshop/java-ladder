@@ -1,5 +1,7 @@
 package laddergame.domain;
 
+import laddergame.domain.player.Players;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +23,7 @@ public class PointsGenerator {
 
     private static void setNumberOfPoints() {
         numberOfX = LadderGameInput.getLadderHeight();
-        numberOfY = LadderGamePlayers.getPlayerCount();
+        numberOfY = Players.getPlayerCount();
     }
 
     public static ArrayList<Integer> createXs() {

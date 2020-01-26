@@ -1,6 +1,7 @@
 package laddergame;
 
 import laddergame.domain.*;
+import laddergame.domain.player.Players;
 import laddergame.view.InputScanner;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +29,7 @@ public class LadderGeneratorTest {
 
         String playerNamesString= "태식,태식이";
         List<String> playerNames = Arrays.asList(playerNamesString.split(DELIMITER));
-        LadderGamePlayers.calculatePlayerCount(playerNames);
+        Players.calculatePlayerCount(playerNames);
 
         String ladderHeightString = "1";
         InputStream inputStream = new ByteArrayInputStream(ladderHeightString.getBytes());

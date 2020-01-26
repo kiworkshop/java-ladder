@@ -1,6 +1,6 @@
 package laddergame;
 
-import laddergame.domain.LadderGamePlayers;
+import laddergame.domain.player.Players;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -18,10 +18,10 @@ public class LadderGamePlayersTest {
         String inputString= "태식,태식이,태식삼";
         List<String> playerNames = Arrays.asList(inputString.split(DELIMITER));
 
-        LadderGamePlayers.calculatePlayerCount(playerNames);
+        Players.calculatePlayerCount(playerNames);
 
         // when
-        int playerCount = LadderGamePlayers.getPlayerCount();
+        int playerCount = Players.getPlayerCount();
 
         // then
         assertThat(playerCount)

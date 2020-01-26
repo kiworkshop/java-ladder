@@ -1,8 +1,8 @@
-package laddergame.domain;
+package laddergame.domain.player;
 
 import java.util.List;
 
-public class LadderGamePlayers {
+public class Players {
 
     private static int playerCount;
 

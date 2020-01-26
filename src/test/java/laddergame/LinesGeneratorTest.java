@@ -1,6 +1,7 @@
 package laddergame;
 
 import laddergame.domain.*;
+import laddergame.domain.player.Players;
 import laddergame.view.InputScanner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,7 @@ class LinesGeneratorTest {
     public static void setUp() {
         String playerNamesString= "태식,태식이,태식삼";
         List<String> playerNames = Arrays.asList(playerNamesString.split(DELIMITER));
-        LadderGamePlayers.calculatePlayerCount(playerNames);
+        Players.calculatePlayerCount(playerNames);
 
         String ladderHeightString = "2";
         InputStream inputStream = new ByteArrayInputStream(ladderHeightString.getBytes());

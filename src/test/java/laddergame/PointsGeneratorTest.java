@@ -1,7 +1,7 @@
 package laddergame;
 
 import laddergame.domain.LadderGameInput;
-import laddergame.domain.LadderGamePlayers;
+import laddergame.domain.player.Players;
 import laddergame.domain.Point;
 import laddergame.domain.PointsGenerator;
 import laddergame.view.InputScanner;
@@ -24,7 +24,7 @@ class PointsGeneratorTest {
     public static void setUp() {
         String playerNamesString= "태식,태식이,태식삼";
         List<String> playerNames = Arrays.asList(playerNamesString.split(DELIMITER));
-        LadderGamePlayers.calculatePlayerCount(playerNames);
+        Players.calculatePlayerCount(playerNames);
 
         String ladderHeightString = "2";
         InputStream inputStream = new ByteArrayInputStream(ladderHeightString.getBytes());

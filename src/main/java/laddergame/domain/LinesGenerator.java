@@ -1,5 +1,7 @@
 package laddergame.domain;
 
+import laddergame.domain.player.Players;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class LinesGenerator {
     }
 
     private static void setNumberOfLines() {
-        int playerCount = LadderGamePlayers.getPlayerCount();
+        int playerCount = Players.getPlayerCount();
         int numberOfLinesPerRow = playerCount - 1;
         numberOfLines = numberOfLinesPerRow * numberOfRows;
     }
