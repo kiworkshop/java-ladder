@@ -7,6 +7,10 @@ public class Main {
     userInput.printUsers();
     ladderGame.printLadders();
     userInput.printResultOptions();
-    ladderGame.showResults();
+    // TODO: 2020-01-27 while achieving a certain condition....
+    while (true) {
+      int resultIndex = ladderGame.run(userInput.getPlayingUserIndex());
+      userInput.printResult(resultIndex);
+    }
   }
 }

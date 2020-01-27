@@ -21,4 +21,11 @@ public class LadderGame {
       System.out.println();
     }
   }
+
+  public int run(int playerIndex) {
+    for (Row row : rows) {
+      playerIndex = row.move(playerIndex);
+    }
+    return playerIndex;
+  }
 }

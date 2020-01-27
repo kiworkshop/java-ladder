@@ -36,4 +36,15 @@ public class Row {
       prev = point;
     }
   }
+
+  public int move(int xIndex) {
+    Point currentPoint = points.get(xIndex);
+    if (currentPoint.isBarStart()) {
+      return xIndex + 1;
+    }
+    if (currentPoint.isBarEnd()) {
+      return xIndex - 1;
+    }
+    return xIndex;
+  }
 }

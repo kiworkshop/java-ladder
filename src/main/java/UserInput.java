@@ -46,6 +46,25 @@ public class UserInput {
     resultOptions.addAll(Arrays.stream(nameArr).map(ResultOption::of).collect(Collectors.toList()));
   }
 
+  public int getPlayingUserIndex() {
+    System.out.println("결과를 보고 싶은 사람은?");
+    Scanner scan = new Scanner(System.in);
+    String nameInput = scan.nextLine();
+    if ("all".equals(nameInput)) {
+      return users.size();
+    }
+    for (int i = 0; i < users.size(); i++) {
+      if (nameInput.equals(users.get(i).getName())) {
+        return i;
+      }
+    }
+    throw new IllegalArgumentException("없는 유저입니다");
+  }
+
+  public void printResult(int resultIndex) {
+    System.out.println(resultOptions.get(resultIndex).toString());
+  }
+
   public List<User> getUsers() {
     return users;
   }
