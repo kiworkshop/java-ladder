@@ -24,7 +24,7 @@ public class LadderGameStarter {
   private List<Row> generateRows() {
     List<Row> rows = new ArrayList<>();
     for (int i = 0; i < height; i++) {
-      rows.add(new Row(i, width));
+      rows.add(Row.of(i, width));
     }
     return rows;
   }

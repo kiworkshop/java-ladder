@@ -5,11 +5,15 @@ public class Row {
   private int rowNum;
   private List<Point> points = new ArrayList<>();
 
-  public Row(int rowNum, int numOfParticipants) {
+  private Row(int rowNum, int numOfParticipants) {
     this.rowNum = rowNum;
     for (int i = 0; i < numOfParticipants; i++) {
       this.points.add(new Point());
     }
+  }
+
+  public static Row of(int rowNum, int numOfParticipants) {
+    return new Row(rowNum, numOfParticipants);
   }
 
   public void drawLadderLines(List<LadderPoint> ladderPoints) {

@@ -20,9 +20,13 @@ public class LadderGameStarterTest {
 
     // then
     for (LadderPoint ladderPoint : ladderPoints) {
-      assertThat(ladderPoints.contains(LadderPoint.of(ladderPoint.getX(), ladderPoint.getY() - 1)) &&
-        ladderPoints.contains(LadderPoint.of(ladderPoint.getX(), ladderPoint.getY() + 1))).isFalse();
+      assertThat(twoLaddersContinuous(ladderPoint, ladderPoints)).isFalse();
     }
+  }
+
+  private boolean twoLaddersContinuous(LadderPoint ladderPoint, List<LadderPoint> ladderPoints) {
+    return ladderPoints.contains(LadderPoint.of(ladderPoint.getX(), ladderPoint.getY() - 1)) &&
+        ladderPoints.contains(LadderPoint.of(ladderPoint.getX(), ladderPoint.getY() + 1));
   }
 
   @Test
