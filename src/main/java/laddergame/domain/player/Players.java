@@ -1,16 +1,23 @@
 package laddergame.domain.player;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Players {
 
-    private static int playerCount;
+    List<Player> players = new ArrayList<>();
 
-    public static void calculatePlayerCount(List<String> playerNames) {
-       playerCount = playerNames.size();
+    public Players(List<Player> players) {
+        if (hasDuplicatedNamesIn(players)) {
+            throw new IllegalArgumentException();
+        }
+        this.players = players;
     }
 
-    public static int getPlayerCount() {
-        return playerCount;
+    private boolean hasDuplicatedNamesIn(List<Player> players) {
+        Set<Player> nameSet = new HashSet<>(players);
+        return players.size() != nameSet.size();
     }
 }

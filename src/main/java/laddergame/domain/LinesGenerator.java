@@ -32,7 +32,7 @@ public class LinesGenerator {
     }
 
     private static void setNumberOfLines() {
-        int playerCount = Players.getPlayerCount();
+        int playerCount = 0; //Players.getPlayerCount();
         int numberOfLinesPerRow = playerCount - 1;
         numberOfLines = numberOfLinesPerRow * numberOfRows;
     }

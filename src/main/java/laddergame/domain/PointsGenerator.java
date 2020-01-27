@@ -23,7 +23,7 @@ public class PointsGenerator {
 
     private static void setNumberOfPoints() {
         numberOfX = LadderGameInput.getLadderHeight();
-        numberOfY = Players.getPlayerCount();
+        numberOfY = 0; //Players.getPlayerCount();
     }
 
     public static ArrayList<Integer> createXs() {
