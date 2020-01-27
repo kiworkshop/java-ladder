@@ -1,7 +1,7 @@
 package laddergame.service;
 
-import laddergame.domain.Ladder;
-import laddergame.domain.LadderHeight;
+import laddergame.domain.ladder.Ladder;
+import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Player;
 import laddergame.domain.player.Players;
 
@@ -31,7 +31,7 @@ public class LadderGameService {
     }
 
     public LadderHeight createLadderHeight(int ladderHightInput) {
-        return new LadderHeight();
+        return new LadderHeight(ladderHightInput);
     }
 
     public Ladder createLadder(Players players, LadderHeight ladderHeight) {

@@ -2,8 +2,8 @@ package laddergame;
 
 import laddergame.domain.LadderGameInput;
 import laddergame.domain.player.Players;
-import laddergame.domain.Point;
-import laddergame.domain.PointsGenerator;
+import laddergame.domain.ladder.Point;
+import laddergame.domain.ladder.PointsGenerator;
 import laddergame.view.InputScanner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

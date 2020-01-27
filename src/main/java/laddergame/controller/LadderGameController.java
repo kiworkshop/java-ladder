@@ -1,7 +1,7 @@
 package laddergame.controller;
 
-import laddergame.domain.Ladder;
-import laddergame.domain.LadderHeight;
+import laddergame.domain.ladder.Ladder;
+import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Players;
 import laddergame.service.LadderGameService;
 import laddergame.view.InputView;

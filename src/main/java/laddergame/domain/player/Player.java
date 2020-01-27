@@ -9,14 +9,14 @@ public class Player {
     private final String name;
 
     public Player(final String name) {
-        this.name = name;
-
-        if (nameIsLongerThanMaxLength()) {
+        if (isLongerThanMaxLength(name)) {
             throw new IllegalArgumentException();
         }
+
+        this.name = name;
     }
 
-    private boolean nameIsLongerThanMaxLength() {
+    private boolean isLongerThanMaxLength(String name) {
         return name.length() > PLAYER_NAME_MAX_LENGTH;
     }
 

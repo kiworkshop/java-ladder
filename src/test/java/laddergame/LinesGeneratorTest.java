@@ -1,6 +1,9 @@
 package laddergame;
 
 import laddergame.domain.*;
+import laddergame.domain.ladder.Line;
+import laddergame.domain.ladder.LinesGenerator;
+import laddergame.domain.ladder.Point;
 import laddergame.domain.player.Players;
 import laddergame.view.InputScanner;
 import org.junit.jupiter.api.BeforeAll;

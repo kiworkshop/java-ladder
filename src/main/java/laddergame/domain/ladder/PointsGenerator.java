@@ -1,6 +1,6 @@
-package laddergame.domain;
+package laddergame.domain.ladder;
 
-import laddergame.domain.player.Players;
+import laddergame.domain.LadderGameInput;
 
 import java.util.ArrayList;
 import java.util.List;
