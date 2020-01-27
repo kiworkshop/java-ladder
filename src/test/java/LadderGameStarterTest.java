@@ -1,16 +1,17 @@
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class LadderGameStarterTest {
 
   @Test
-  public void ladder_point들은_가로로_겹치지_않는다() {
+  @DisplayName("사다리는 가로로 두번이상 연속 되지 않는다")
+  public void generateLadderPoint_notSubsequentLadder() {
     // given
     LadderGameStarter ladderStarter = getGameStarterFixture();
 
@@ -18,17 +19,18 @@ public class LadderGameStarterTest {
     List<LadderPoint> ladderPoints = ladderStarter.generateLadderPoints();
 
     // then
-    List<Integer> yList = ladderPoints.stream().map(ladderPoint -> ladderPoint.getY()).collect(Collectors.toList());
-    Set<Integer> ySet = ladderPoints.stream().map(ladderPoint -> ladderPoint.getY()).collect(Collectors.toSet());
-    assertThat(yList.size()).isEqualTo(ySet.size());
+    for (LadderPoint ladderPoint : ladderPoints) {
+      assertThat(ladderPoints.contains(LadderPoint.of(ladderPoint.getX(), ladderPoint.getY() - 1)) &&
+        ladderPoints.contains(LadderPoint.of(ladderPoint.getX(), ladderPoint.getY() + 1))).isFalse();
+    }
   }
 
   @Test
   public void arg값과_중복된_랜덤값을_생성하지_않는다() {
     LadderGameStarter ladderStarter = getGameStarterFixture();
-    assertThat(ladderStarter.generateRandomNum(4, 4)).isNotEqualTo(4);
-    assertThat(ladderStarter.generateRandomNum(4, 1)).isNotEqualTo(1);
-    assertThat(ladderStarter.generateRandomNum(4, 2)).isNotEqualTo(2);
+    assertThat(ladderStarter.generateRandomNum(4, Collections.singletonList(4))).isNotEqualTo(4);
+    assertThat(ladderStarter.generateRandomNum(4, Collections.singletonList(1))).isNotEqualTo(1);
+    assertThat(ladderStarter.generateRandomNum(4, Collections.singletonList(2))).isNotEqualTo(2);
   }
 
   public LadderGameStarter getGameStarterFixture() {

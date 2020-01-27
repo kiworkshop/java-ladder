@@ -29,7 +29,7 @@ public class LadderGameStarter {
     return rows;
   }
 
-  private List<LadderPoint> generateLadderPoints() {
+  protected List<LadderPoint> generateLadderPoints() {
     List<LadderPoint> ladderPoints = new ArrayList<>();
     List<Integer> prevRandomNumbers = new ArrayList<>();
     for (int i = 1; i < width; i++) {
