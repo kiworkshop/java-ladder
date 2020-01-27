@@ -2,13 +2,13 @@ package laddergame.domain.ladder;
 
 import java.util.Objects;
 
-public class Line {
+public class LadderLine {
 
     private Point leftPoint;
     private Point rightPoint;
     public boolean exists = false;
 
-    public Line(Point leftPoint, Point rightPoint) {
+    public LadderLine(Point leftPoint, Point rightPoint) {
         this.leftPoint = leftPoint;
         this.rightPoint = rightPoint;
     }
@@ -17,10 +17,10 @@ public class Line {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Line line = (Line) o;
-        return exists == line.exists &&
-                Objects.equals(leftPoint, line.leftPoint) &&
-                Objects.equals(rightPoint, line.rightPoint);
+        LadderLine ladderLine = (LadderLine) o;
+        return exists == ladderLine.exists &&
+                Objects.equals(leftPoint, ladderLine.leftPoint) &&
+                Objects.equals(rightPoint, ladderLine.rightPoint);
     }
 
     @Override

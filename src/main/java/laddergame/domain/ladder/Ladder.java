@@ -1,37 +1,29 @@
 package laddergame.domain.ladder;
 
+import laddergame.domain.ladderheight.LadderHeight;
+import laddergame.domain.player.Players;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Ladder {
 
-    public List<Line> lines = new ArrayList<>();
+    private final List<LadderLine> lines;
 
-    public Ladder() {
-    }
-
-    public Ladder(List<Line> lines) {
+    private Ladder(final List<LadderLine> lines) {
         this.lines = lines;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ladder ladder = (Ladder) o;
-        return Objects.equals(lines, ladder.lines);
-    }
+    public static Ladder with(final Players players, final LadderHeight ladderHeight) {
+        List<LadderLine> lines = new ArrayList<>();
+        int width = players.size();
+        int height = ladderHeight.getHeight();
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(lines);
-    }
+        for (int i = 0; i < height; i++) {
+            LadderLine line = LadderLine.with(width, i);
+            lines.add(line);
+        }
 
-    @Override
-    public String toString() {
-        return "laddergame.domain.ladder.Ladder{" +
-                "lines=" + lines +
-                '}';
+        return new Ladder(lines);
     }
 }

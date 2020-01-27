@@ -16,7 +16,7 @@ public class Player {
         this.name = name;
     }
 
-    private boolean isLongerThanMaxLength(String name) {
+    private boolean isLongerThanMaxLength(final String name) {
         return name.length() > PLAYER_NAME_MAX_LENGTH;
     }
 

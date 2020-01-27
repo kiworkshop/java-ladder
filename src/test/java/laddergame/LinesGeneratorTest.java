@@ -1,7 +1,7 @@
 package laddergame;
 
 import laddergame.domain.*;
-import laddergame.domain.ladder.Line;
+import laddergame.domain.ladder.LadderLine;
 import laddergame.domain.ladder.LinesGenerator;
 import laddergame.domain.ladder.Point;
 import laddergame.domain.player.Players;
@@ -36,19 +36,19 @@ class LinesGeneratorTest {
     @Test
     public void testGenerateLines() {
         // given
-        List<Line> expectedLines = new ArrayList<>();
-        expectedLines.add(new Line(new Point(0,0), new Point(0,1)));
-        expectedLines.add(new Line(new Point(0,1), new Point(0,2)));
-        expectedLines.add(new Line(new Point(1,0), new Point(1,1)));
-        expectedLines.add(new Line(new Point(1,1), new Point(1,2)));
+        List<LadderLine> expectedLadderLines = new ArrayList<>();
+        expectedLadderLines.add(new LadderLine(new Point(0,0), new Point(0,1)));
+        expectedLadderLines.add(new LadderLine(new Point(0,1), new Point(0,2)));
+        expectedLadderLines.add(new LadderLine(new Point(1,0), new Point(1,1)));
+        expectedLadderLines.add(new LadderLine(new Point(1,1), new Point(1,2)));
 
         // when
-        List<Line> lines = LinesGenerator.generateLines();
+        List<LadderLine> ladderLines = LinesGenerator.generateLines();
 
         // then
-        assertThat(lines)
+        assertThat(ladderLines)
                 .isNotNull()
-                .isEqualTo(expectedLines);
+                .isEqualTo(expectedLadderLines);
     }
 
 }

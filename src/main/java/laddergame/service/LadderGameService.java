@@ -30,11 +30,11 @@ public class LadderGameService {
                 .collect(Collectors.toList());
     }
 
-    public LadderHeight createLadderHeight(int ladderHightInput) {
-        return new LadderHeight(ladderHightInput);
+    public LadderHeight createLadderHeight(int ladderHeightInput) {
+        return new LadderHeight(ladderHeightInput);
     }
 
     public Ladder createLadder(Players players, LadderHeight ladderHeight) {
-        return new Ladder();
+        return Ladder.with(players, ladderHeight);
     }
 }
