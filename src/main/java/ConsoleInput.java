@@ -9,16 +9,40 @@ public class ConsoleInput {
   public static final String DELIMITER = ",";
   public static final String MESSAGE_INPUT_USER_NAMES = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요.)";
   public static final String MESSAGE_INPUT_MAX_LADDER_HEIGHT = "최대 사다리 높이는 몇 개인가요?";
+  public static final String MESSAGE_INPUT_GAME_PRIZES = "사다리 상품을 입력해주세요.(상품들은 쉼표(,)로 구분됩니다.)";
 
   public static Scanner sc = new Scanner(System.in);
 
   public static LadderInputData getLadderData() {
-    List<User> users = getUsers(getInputUserNames());
-    LadderHeight height = getHeight();
-    return LadderInputData.of(users, height);
+    List<User> users = createUsersFrom(getInputUserNames());
+    LadderHeight height = createHeight();
+    List<Prize> prizes = createPrizesFrom(getInputPrizeNames());
+    return LadderInputData.of(users, height, prizes);
   }
 
-  static List<User> getUsers(List<String> userNames) {
+  private static List<String> getInputPrizeNames() {
+    System.out.println(MESSAGE_INPUT_GAME_PRIZES);
+    return Arrays.asList(sc.nextLine().split(DELIMITER));
+  }
+
+  static List<Prize> createPrizesFrom(List<String> prizeNames) {
+    List<Prize> prizes = new ArrayList<>();
+
+    int position = INITIAL_POSITION;
+    for (String prizeName: prizeNames) {
+      Prize prize = Prize.with(prizeName, position);
+      prizes.add(prize);
+      position++;
+    }
+    return prizes;
+  }
+
+  private static List<String> getInputUserNames() {
+    System.out.println(MESSAGE_INPUT_USER_NAMES);
+    return Arrays.asList(sc.nextLine().split(DELIMITER));
+  }
+
+  static List<User> createUsersFrom(List<String> userNames) {
     List<User> users = new ArrayList<>();
 
     int position = INITIAL_POSITION;
@@ -30,12 +54,7 @@ public class ConsoleInput {
     return users;
   }
 
-  private static List<String> getInputUserNames() {
-    System.out.println(MESSAGE_INPUT_USER_NAMES);
-    return Arrays.asList(sc.nextLine().split(DELIMITER));
-  }
-
-  private static LadderHeight getHeight() {
+  private static LadderHeight createHeight() {
     System.out.println(MESSAGE_INPUT_MAX_LADDER_HEIGHT);
     return LadderHeight.of(getInputHeight());
   }

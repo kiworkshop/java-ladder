@@ -10,7 +10,8 @@ public class LadderGameTest {
     // given
     List<User> users = ConsoleInputTest.getUsersFixture("김지우,조광일,구미향");
     LadderHeight height = LadderHeightTest.getLadderHeightFixture(3);
-    LadderInputData ladderInputData = LadderInputData.of(users, height);
+    List<Prize> prizes = ConsoleInputTest.getPrizesFixture("꽝,3000,꽝");
+    LadderInputData ladderInputData = LadderInputData.of(users, height, prizes);
     RowGeneratorStrategy rowGeneratorStrategy = new RowWithEvenIndexLinesGeneratorStrategy();
     // when
     LadderGame ladderGame = LadderGame.with(ladderInputData, rowGeneratorStrategy);
@@ -23,16 +24,18 @@ public class LadderGameTest {
   @Test
   void generateLadder_ManualStrategy_ValidLadder() {
     // given
-    String names = "김지우,조광일,구미향";
+    String userNames = "김지우,조광일,구미향";
+    String prizeNames = "꽝,3000,꽝";
     int numOfNames = 3;
+    int lenOfRow = numOfNames - 1;
     int height = 4;
-    Row rowFixture = RowTest.getRowFixture(numOfNames);
-    LadderInputData ladderInputData = LadderInputDataTest.getLadderInputDataFixture(names, height);
+    Row rowFixture = RowTest.getRowFixture(lenOfRow);
+    LadderInputData ladderInputData = LadderInputDataTest.getLadderInputDataFixture(userNames, height, prizeNames);
     RowGeneratorStrategy rowGeneratorStrategy = new RowWithEvenIndexLinesGeneratorStrategy();
     LadderGame ladderGame = LadderGame.with(ladderInputData, rowGeneratorStrategy);
     // when
     ladderGame.generateLadder();
-    // then 테스트 코드들을 관통하는 Fixture
+    // then
     assertThat(ladderGame.getLadder().getRows()).hasSize(height);
     assertThat(ladderGame.getLadder().getRows()).contains(rowFixture);
   }

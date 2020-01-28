@@ -23,8 +23,8 @@ public class LadderGenerator {
     return rows;
   }
 
-  public Ladder generateLadder(int lenOfRow, int height) {
-    return Ladder.with(generateRows(lenOfRow, height));
+  public Ladder generateLadder(int numOfColumn, int height) {
+    return Ladder.with(generateRows(numOfColumn, height));
   }
 
   public RowGeneratorStrategy getRowGeneratorStrategy() {
