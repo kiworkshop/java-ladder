@@ -43,6 +43,26 @@ public class Row {
     return BLANK_SPACE_BETWEEN_BARS;
   }
 
+  public int getNextPosition(int prevPosition) {
+    if (hasLineStartingWith(prevPosition)) {
+      return prevPosition + 1;
+    }
+
+    if (hasLineEndingWith(prevPosition)) {
+      return prevPosition - 1;
+    }
+
+    return prevPosition;
+  }
+
+  private boolean hasLineStartingWith(int prevPosition) {
+    return lines.stream().anyMatch(line -> line.isStartingWith(prevPosition));
+  }
+
+  private boolean hasLineEndingWith(int prevPosition) {
+    return lines.stream().anyMatch(line -> line.isEndingWith(prevPosition));
+  }
+
   public List<Line> getLines() {
     return lines;
   }

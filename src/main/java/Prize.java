@@ -19,4 +19,8 @@ public class Prize {
   public int getPosition() {
     return position;
   }
+
+  public boolean hasPosition(int position) {
+    return this.position == position;
+  }
 }

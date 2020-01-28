@@ -18,6 +18,10 @@ public class Line {
     return startPosition == position;
   }
 
+  public boolean isEndingWith(int position) {
+    return endPosition == position;
+  }
+
   public int getStartPosition() {
     return startPosition;
   }

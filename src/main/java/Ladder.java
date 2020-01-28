@@ -12,6 +12,14 @@ public class Ladder {
     return new Ladder(rows);
   }
 
+  public int startWith(int initialPosition) {
+    int position = initialPosition;
+    for (Row row: rows) {
+      position = row.getNextPosition(position);
+    }
+    return position;
+  }
+
   public List<Row> getRows() {
     return rows;
   }

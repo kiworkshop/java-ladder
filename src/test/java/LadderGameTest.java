@@ -29,7 +29,7 @@ public class LadderGameTest {
     int numOfNames = 3;
     int lenOfRow = numOfNames - 1;
     int height = 4;
-    Row rowFixture = RowTest.getRowFixture(lenOfRow);
+    Row rowFixture = RowTest.getRowFixtureWithLinesStartingWithEvenIndex(lenOfRow);
     LadderInputData ladderInputData = LadderInputDataTest.getLadderInputDataFixture(userNames, height, prizeNames);
     RowGeneratorStrategy rowGeneratorStrategy = new RowWithEvenIndexLinesGeneratorStrategy();
     LadderGame ladderGame = LadderGame.with(ladderInputData, rowGeneratorStrategy);
