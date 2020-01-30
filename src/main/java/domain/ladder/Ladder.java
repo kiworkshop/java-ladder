@@ -22,4 +22,8 @@ public class Ladder {
         }
         return index;
     }
+
+    public List<Row> getRows() {
+        return rows;
+    }
 }

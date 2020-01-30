@@ -4,24 +4,28 @@ import java.util.List;
 
 public class Row {
 
-    private List<Step> row;
+    private List<Step> steps;
 
-    public Row(List<Step> row) {
-        this.row = row;
+    public Row(List<Step> steps) {
+        this.steps = steps;
     }
 
     public int getNextIndexFrom(int index) {
         int prevIndex = index - 1;
         if ( prevIndex >= 0 ) {
-            if (row.get(prevIndex).exist()) {
+            if (steps.get(prevIndex).exist()) {
                 return --index;
             }
         }
-        if (index <= row.size()) {
-            if (row.get(index).exist()) {
+        if (index <= steps.size()) {
+            if (steps.get(index).exist()) {
                 return ++index;
             }
         }
         return index;
+    }
+
+    public List<Step> getSteps() {
+        return steps;
     }
 }
