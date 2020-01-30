@@ -20,8 +20,11 @@ public enum Point {
         return generatePoint(false, strategy.isConnectable());
     }
 
-    public static Point generateLastPoint(LadderCreationStrategy strategy) {
-        return generatePoint(strategy.isConnectable(), false);
+    public static Point generateLastPoint(Point point) {
+        if (point.hasRightConnection()) {
+            return generatePoint(true, false);
+        }
+        return generatePoint(false, false);
     }
 
     public Point decideNextPoint(LadderCreationStrategy strategy) {
@@ -45,5 +48,13 @@ public enum Point {
         }
 
         return NONE;
+    }
+
+    private boolean hasRightConnection() {
+        return rightConnection;
+    }
+
+    private boolean hasLeftConnection() {
+        return leftConnection;
     }
 }

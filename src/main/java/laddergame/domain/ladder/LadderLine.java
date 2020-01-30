@@ -4,6 +4,7 @@ import laddergame.domain.ladder.Strategy.LadderCreationStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LadderLine {
 
@@ -33,7 +34,7 @@ public class LadderLine {
         }
 
         if (isLastPoint(remain)) {
-            return Point.generateLastPoint(strategy);
+            return Point.generateLastPoint(point);
         }
 
         return point.decideNextPoint(strategy);
@@ -45,5 +46,29 @@ public class LadderLine {
 
     private static boolean isLastPoint(int remain) {
         return remain == 1;
+    }
+
+    public int size() {
+        return points.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LadderLine that = (LadderLine) o;
+        return Objects.equals(points, that.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
+    }
+
+    @Override
+    public String toString() {
+        return "LadderLine{" +
+                "points=" + points +
+                '}';
     }
 }

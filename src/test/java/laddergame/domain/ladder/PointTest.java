@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PointTest {
 
     @Test
-    void 첫번째_포인트의_leftConnection은_false() {
+    void generateFirstPoint() {
         //given
         Point firstPoint = Point.generateFirstPoint(new ManualLadderCreationStrategy());
         Point expected = Point.RIGHT;
@@ -19,9 +19,9 @@ class PointTest {
     }
 
     @Test
-    void 마지막_포인트의_rightConnection은_false() {
+    void generateLastPoint() {
         //given
-        Point LastPoint = Point.generateLastPoint(new ManualLadderCreationStrategy());
+        Point LastPoint = Point.generateLastPoint(Point.RIGHT);
         Point expected = Point.LEFT;
 
         //then
@@ -29,7 +29,7 @@ class PointTest {
     }
 
     @Test
-    void 다음_포인트의_connection이_잘_결정되는지_테스트() {
+    void decideNextPoint() {
         //given
         Point nextOfLeft = Point.LEFT.decideNextPoint(new ManualLadderCreationStrategy());
         Point nextOfRight = Point.RIGHT.decideNextPoint(new ManualLadderCreationStrategy());
