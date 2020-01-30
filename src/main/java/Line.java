@@ -65,14 +65,20 @@ public class Line {
         return stringBuilder.toString();
     }
 
-    public void playLineGame(List<Person> people) {
+    public List<Person> playLineGame(List<Person> people) {
         List<Person> peopleLinerGame = people;
         for (int barIndex = 0; barIndex < bars.size(); barIndex++) {
-            playBarGame(bars, peopleLinerGame);
+            peopleLinerGame = playBarGame(bars.get(barIndex), peopleLinerGame);
         }
+        return peopleLinerGame;
     }
 
-    private void playBarGame(List<Bar> bars, List<Person> peopleLinerGame) {
+    private List<Person> playBarGame(Bar bar, List<Person> peopleLinerGame) {
+        if (bar.isExists()) {
 
+        }
+
+
+        return peopleLinerGame;
     }
 }

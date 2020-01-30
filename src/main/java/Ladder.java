@@ -31,7 +31,7 @@ public class Ladder {
     public List<Person> playLadderGame(List<Person> people) {
         List<Person> peopleLadderGame = people;
         for (Line line : ladder) {
-            line.playLineGame(peopleLadderGame);
+            peopleLadderGame = line.playLineGame(peopleLadderGame);
         }
         return peopleLadderGame;
     }
