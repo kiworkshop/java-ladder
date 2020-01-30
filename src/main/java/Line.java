@@ -65,4 +65,9 @@ public class Line {
         return stringBuilder.toString();
     }
 
+    public void playLineGame(List<Person> people) {
+        for (Bar bar : bars) {
+            playBargGame(poeple);
+        }
+    }
 }

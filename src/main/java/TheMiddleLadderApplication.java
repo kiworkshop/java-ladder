@@ -16,6 +16,9 @@ public class TheMiddleLadderApplication {
         ConsoleOutput.printPeople(people);
         ConsoleOutput.printLadder(ladder);
         ConsoleOutput.printResults(results);
+
+        List<Person> peoplePlayed = ladder.playLadderGame(people);
+
     }
 
     private static List<GameResult> makeGameResult(String inputResults) {
@@ -29,4 +32,5 @@ public class TheMiddleLadderApplication {
                 .map(Person::new)
                 .collect(Collectors.toList());
     }
+
 }

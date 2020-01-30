@@ -27,4 +27,13 @@ public class Ladder {
             ladder.add(new Line(width));
         }
     }
+
+    public List<Person> playLadderGame(List<Person> people) {
+//        List<Person> peopleLadderGame = people;
+        for (Line line : ladder) {
+            line.playLineGame(people);
+        }
+        return people;
+        }
+    }
 }
