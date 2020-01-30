@@ -1,6 +1,7 @@
 package laddergame.controller;
 
 import laddergame.domain.ladder.Ladder;
+import laddergame.domain.ladder.Strategy.RandomLadderCreationStrategy;
 import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Players;
 import laddergame.service.LadderGameService;
@@ -22,7 +23,7 @@ public class LadderGameController {
         int ladderHeightInput = inputView.getLadderHeightFromConsole();
         LadderHeight ladderHeight = ladderGameService.createLadderHeight(ladderHeightInput);
 
-        Ladder ladder = ladderGameService.createLadder(players, ladderHeight);
+        Ladder ladder = ladderGameService.createLadder(players, ladderHeight, new RandomLadderCreationStrategy());
 
     }
 }

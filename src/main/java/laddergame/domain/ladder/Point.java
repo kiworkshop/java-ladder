@@ -1,5 +1,7 @@
 package laddergame.domain.ladder;
 
+import laddergame.domain.ladder.Strategy.LadderCreationStrategy;
+
 public enum Point {
 
     LEFT(true, false),
@@ -14,15 +16,15 @@ public enum Point {
         this.rightConnection = rightConnection;
     }
 
-    public static Point generateFirstPoint() {
+    public static Point generateFirstPoint(LadderCreationStrategy strategy) {
 
     }
 
-    public static Point generateLastPoint() {
+    public static Point generateLastPoint(LadderCreationStrategy strategy) {
 
     }
 
-    public static Point generatePoint() {
+    public static Point generatePoint(LadderCreationStrategy strategy) {
 
     }
 }

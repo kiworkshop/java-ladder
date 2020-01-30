@@ -1,5 +1,7 @@
 package laddergame.domain.ladder;
 
+import laddergame.domain.ladder.Strategy.LadderCreationStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,27 +13,27 @@ public class LadderLine {
         this.points = points;
     }
 
-    public static LadderLine with(final int width) {
+    public static LadderLine with(final int width, LadderCreationStrategy strategy) {
         List<Point> points = new ArrayList<>();
 
         for (int i = 0; i < width; i++) {
-            Point point = generatePoint(width);
+            Point point = generatePoint(width, strategy);
             points.add(point);
         }
 
         return new LadderLine(points);
     }
 
-    private static Point generatePoint(int width) {
+    private static Point generatePoint(int width, LadderCreationStrategy strategy) {
         if(isFirstPoint()) {
-            return Point.generateFirstPoint();
+            return Point.generateFirstPoint(strategy);
         }
 
         if (isLastPoint(width)) {
-            return Point.generateLastPoint();
+            return Point.generateLastPoint(strategy);
         }
 
-        return Point.generatePoint();
+        return Point.generatePoint(strategy);
     }
 
     private static boolean isFirstPoint() {

@@ -1,5 +1,6 @@
 package laddergame.domain.ladder;
 
+import laddergame.domain.ladder.Strategy.LadderCreationStrategy;
 import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Players;
 
@@ -14,13 +15,13 @@ public class Ladder {
         this.lines = lines;
     }
 
-    public static Ladder with(final Players players, final LadderHeight ladderHeight) {
+    public static Ladder with(final Players players, final LadderHeight ladderHeight, LadderCreationStrategy strategy) {
         List<LadderLine> lines = new ArrayList<>();
         int width = players.size();
         int height = ladderHeight.getHeight();
 
         for (int i = 0; i < height; i++) {
-            LadderLine line = LadderLine.with(width);
+            LadderLine line = LadderLine.with(width, strategy);
             lines.add(line);
         }
 
