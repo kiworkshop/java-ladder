@@ -29,11 +29,10 @@ public class Ladder {
     }
 
     public List<Person> playLadderGame(List<Person> people) {
-//        List<Person> peopleLadderGame = people;
+        List<Person> peopleLadderGame = people;
         for (Line line : ladder) {
-            line.playLineGame(people);
+            line.playLineGame(peopleLadderGame);
         }
-        return people;
-        }
+        return peopleLadderGame;
     }
 }

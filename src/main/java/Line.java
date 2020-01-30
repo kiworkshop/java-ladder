@@ -66,8 +66,13 @@ public class Line {
     }
 
     public void playLineGame(List<Person> people) {
-        for (Bar bar : bars) {
-            playBargGame(poeple);
+        List<Person> peopleLinerGame = people;
+        for (int barIndex = 0; barIndex < bars.size(); barIndex++) {
+            playBarGame(bars, peopleLinerGame);
         }
+    }
+
+    private void playBarGame(List<Bar> bars, List<Person> peopleLinerGame) {
+
     }
 }
