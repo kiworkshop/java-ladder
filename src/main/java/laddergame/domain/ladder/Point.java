@@ -32,9 +32,17 @@ public enum Point {
     }
 
     private static Point generatePoint(boolean leftConnection, boolean rightConnection) {
-        if (leftConnection && !rightConnection) { return LEFT; }
+        if (leftConnection && rightConnection) {
+            throw new IllegalArgumentException();
+        }
 
-        if (!leftConnection && rightConnection) { return RIGHT; }
+        if (leftConnection) {
+            return LEFT;
+        }
+
+        if (rightConnection) {
+            return RIGHT;
+        }
 
         return NONE;
     }
