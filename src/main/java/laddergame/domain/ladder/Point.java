@@ -17,14 +17,25 @@ public enum Point {
     }
 
     public static Point generateFirstPoint(LadderCreationStrategy strategy) {
-
+        return generatePoint(false, strategy.isConnectable());
     }
 
     public static Point generateLastPoint(LadderCreationStrategy strategy) {
-
+        return generatePoint(strategy.isConnectable(), false);
     }
 
-    public static Point generatePoint(LadderCreationStrategy strategy) {
+    public Point decideNextPoint(LadderCreationStrategy strategy) {
+        if (rightConnection) {
+            return generatePoint(true, false );
+        }
+        return generatePoint(false, strategy.isConnectable());
+    }
 
+    private static Point generatePoint(boolean leftConnection, boolean rightConnection) {
+        if (leftConnection && !rightConnection) { return LEFT; }
+
+        if (!leftConnection && rightConnection) { return RIGHT; }
+
+        return NONE;
     }
 }

@@ -15,32 +15,35 @@ public class LadderLine {
 
     public static LadderLine with(final int width, LadderCreationStrategy strategy) {
         List<Point> points = new ArrayList<>();
+        Point previousPoint = null;
 
         for (int i = 0; i < width; i++) {
-            Point point = generatePoint(width, strategy);
+            int remain = width - i;
+            Point point = generatePoint(previousPoint, remain, strategy);
             points.add(point);
+            previousPoint = point;
         }
 
         return new LadderLine(points);
     }
 
-    private static Point generatePoint(int width, LadderCreationStrategy strategy) {
-        if(isFirstPoint()) {
+    private static Point generatePoint(Point point, int remain, LadderCreationStrategy strategy) {
+        if (isFirstPoint(point)) {
             return Point.generateFirstPoint(strategy);
         }
 
-        if (isLastPoint(width)) {
+        if (isLastPoint(remain)) {
             return Point.generateLastPoint(strategy);
         }
 
-        return Point.generatePoint(strategy);
+        return point.decideNextPoint(strategy);
     }
 
-    private static boolean isFirstPoint() {
-        return points == null;
+    private static boolean isFirstPoint(Point point) {
+        return point == null;
     }
 
-    private static boolean isLastPoint(int width) {
-        return points.size() == width;
+    private static boolean isLastPoint(int remain) {
+        return remain == 1;
     }
 }
