@@ -9,14 +9,14 @@ public class Players {
     private final List<Player> players;
 
     public Players(final List<Player> players) {
-        if (hasDuplicatedNamesIn(players)) {
+        if (hasDuplicatedNames(players)) {
             throw new IllegalArgumentException();
         }
 
         this.players = players;
     }
 
-    private boolean hasDuplicatedNamesIn(final List<Player> players) {
+    private boolean hasDuplicatedNames(final List<Player> players) {
         Set<Player> nameSet = new HashSet<>(players);
         return players.size() != nameSet.size();
     }

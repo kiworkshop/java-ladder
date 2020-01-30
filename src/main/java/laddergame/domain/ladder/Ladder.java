@@ -20,7 +20,7 @@ public class Ladder {
         int height = ladderHeight.getHeight();
 
         for (int i = 0; i < height; i++) {
-            LadderLine line = LadderLine.with(width, i);
+            LadderLine line = LadderLine.with(width);
             lines.add(line);
         }
 

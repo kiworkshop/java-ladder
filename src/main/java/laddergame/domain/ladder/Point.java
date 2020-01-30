@@ -1,36 +1,28 @@
 package laddergame.domain.ladder;
 
-import java.util.Objects;
+public enum Point {
 
-public class Point {
+    LEFT(true, false),
+    RIGHT(false, true),
+    NONE(false, false);
 
-    private int x;
-    private int y;
+    private boolean leftConnection;
+    private boolean rightConnection;
 
-    public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+    Point(boolean leftConnection, boolean rightConnection) {
+        this.leftConnection = leftConnection;
+        this.rightConnection = rightConnection;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Point point = (Point) o;
-        return x == point.x &&
-                y == point.y;
+    public static Point generateFirstPoint() {
+
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
+    public static Point generateLastPoint() {
+
     }
 
-    @Override
-    public String toString() {
-        return "laddergame.domain.ladder.Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+    public static Point generatePoint() {
+
     }
 }

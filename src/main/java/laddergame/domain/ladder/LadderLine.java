@@ -1,39 +1,44 @@
 package laddergame.domain.ladder;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LadderLine {
 
-    private Point leftPoint;
-    private Point rightPoint;
-    public boolean exists = false;
+    private final List<Point> points;
 
-    public LadderLine(Point leftPoint, Point rightPoint) {
-        this.leftPoint = leftPoint;
-        this.rightPoint = rightPoint;
+    public LadderLine(final List<Point> points) {
+        this.points = points;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        LadderLine ladderLine = (LadderLine) o;
-        return exists == ladderLine.exists &&
-                Objects.equals(leftPoint, ladderLine.leftPoint) &&
-                Objects.equals(rightPoint, ladderLine.rightPoint);
+    public static LadderLine with(final int width) {
+        List<Point> points = new ArrayList<>();
+
+        for (int i = 0; i < width; i++) {
+            Point point = generatePoint(width);
+            points.add(point);
+        }
+
+        return new LadderLine(points);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(leftPoint, rightPoint, exists);
+    private static Point generatePoint(int width) {
+        if(isFirstPoint()) {
+            return Point.generateFirstPoint();
+        }
+
+        if (isLastPoint(width)) {
+            return Point.generateLastPoint();
+        }
+
+        return Point.generatePoint();
     }
 
-    @Override
-    public String toString() {
-        return "laddergame.domain.ladder.Line{" +
-                "leftPoint=" + leftPoint +
-                ", rightPoint=" + rightPoint +
-                ", exists=" + exists +
-                '}';
+    private static boolean isFirstPoint() {
+        return points == null;
+    }
+
+    private static boolean isLastPoint(int width) {
+        return points.size() == width;
     }
 }

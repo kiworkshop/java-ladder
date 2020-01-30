@@ -1,7 +1,6 @@
 package laddergame.view;
 
 import laddergame.domain.ladder.Ladder;
-import laddergame.domain.LadderGameInput;
 
 import java.util.List;
 
