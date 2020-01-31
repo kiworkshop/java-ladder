@@ -50,11 +50,7 @@ public enum Point {
         return NONE;
     }
 
-    private boolean hasRightConnection() {
+    public boolean hasRightConnection() {
         return rightConnection;
-    }
-
-    private boolean hasLeftConnection() {
-        return leftConnection;
     }
 }

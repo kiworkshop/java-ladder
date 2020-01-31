@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Player {
 
-    private static final int PLAYER_NAME_MAX_LENGTH = 5;
+    public static final int PLAYER_NAME_MAX_LENGTH = 5;
 
     private final String name;
 
