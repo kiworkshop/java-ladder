@@ -14,14 +14,18 @@ public class TheMiddleLadderApplication {
         LadderInput ladderInput = new LadderInput(people, ladderHeight);
         Ladder ladder = Ladder.of(ladderInput);
 
-        ConsoleOutput.printPeople(people);
-        ConsoleOutput.printLadder(ladder);
-        ConsoleOutput.printResults(results);
+        printLadderGameGraphics(people, ladder, results);
 
         List<Person> peoplePlayed = ladder.playLadderGame(people);
         while (true) {
             showGameResults(peoplePlayed, results);
         }
+    }
+
+    private static void printLadderGameGraphics(List<Person> people, Ladder ladder, List<GameResult> results) {
+        ConsoleOutput.printPeople(people);
+        ConsoleOutput.printLadder(ladder);
+        ConsoleOutput.printResults(results);
     }
 
     private static void showGameResults(List<Person> peoplePlayed, List<GameResult> results) {
