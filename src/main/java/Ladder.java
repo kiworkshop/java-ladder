@@ -19,7 +19,7 @@ public class Ladder {
     }
 
     public String toString() {
-        return String.join(DELIMITER_LINE, ladder.stream().map(Line::toString).collect(Collectors.toList()));
+        return ladder.stream().map(Line::toString).collect(Collectors.joining(DELIMITER_LINE));
     }
 
     private void build() {

@@ -19,7 +19,16 @@ public class TheMiddleLadderApplication {
         ConsoleOutput.printResults(results);
 
         List<Person> peoplePlayed = ladder.playLadderGame(people);
+        while (true) {
+            showGameResults(peoplePlayed, results);
+        }
+    }
 
+    private static void showGameResults(List<Person> peoplePlayed, List<GameResult> results) {
+        String userNameWantToKnowResult = Input.printResultAsk();
+        if (userNameWantToKnowResult.equals("all")) {
+            ConsoleOutput.printAllResults(peoplePlayed, results);
+        }
     }
 
     private static List<GameResult> makeGameResult(String inputResults) {
