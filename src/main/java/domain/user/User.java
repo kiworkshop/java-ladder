@@ -13,7 +13,16 @@ public class User {
         this.name = name;
     }
 
+    public String getFormattedName() {
+        return String.format("%" + NAME_LIMIT_LENGTH + "s", name);
+    }
+
     public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
         return name;
     }
 }
