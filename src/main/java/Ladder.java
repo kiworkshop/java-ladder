@@ -1,31 +1,37 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Ladder {
-    private List<Person> people;
-    private int ladderHeight;
-    private List<Line> ladder;
+    public static final String DELIMITER_LINE = "\n";
+    private int width;
+    private int height;
+    private List<Line> ladder = new ArrayList<>();
 
-    public Ladder(List<Person> people, int ladderHeight) {
-        this.people = people;
-        this.ladderHeight = ladderHeight;
-        this.ladder = new ArrayList<>();
-        buildLadder();
+    public Ladder(int width, int height) {
+        this.width = width;
+        this.height = height;
+        build();
     }
 
-    private void buildLadder() {
-        for (int i = 0; i < ladderHeight; i++) {
-            ladder.add(new Line(people.size()));
+    public static Ladder of(LadderInput ladderInput) {
+        return new Ladder(ladderInput.getWidth(), ladderInput.getHeight());
+    }
+
+    public String toString() {
+        return ladder.stream().map(Line::toString).collect(Collectors.joining(DELIMITER_LINE));
+    }
+
+    private void build() {
+        for (int i = 0; i < height; i++) {
+            ladder.add(new Line(width));
         }
     }
 
-    public void printLadder() {
-        for (Person person : people) {
-            System.out.printf("%-6s", person.getName());
-        }
-        System.out.println();
+    public List<Person> playLadderGame(List<Person> people) {
         for (Line line : ladder) {
-            System.out.println(line.toString());
+            people = line.playLineGame(people);
         }
+        return people;
     }
 }
