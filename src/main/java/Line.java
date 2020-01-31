@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -66,19 +67,18 @@ public class Line {
     }
 
     public List<Person> playLineGame(List<Person> people) {
-        List<Person> peopleLinerGame = people;
         for (int barIndex = 0; barIndex < bars.size(); barIndex++) {
-            peopleLinerGame = playBarGame(bars.get(barIndex), peopleLinerGame);
+            people = playBarGame(barIndex, bars.get(barIndex), people); //TODO need refactoring. 인수 3개까지 되던가?
         }
-        return peopleLinerGame;
+        Collections.sort(people);
+        return people;
     }
 
-    private List<Person> playBarGame(Bar bar, List<Person> peopleLinerGame) {
+    private List<Person> playBarGame(int barIndex, Bar bar, List<Person> people) {
         if (bar.isExists()) {
-
+            people.get(barIndex).goRight();
+            people.get(barIndex + 1).goLeft();
         }
-
-
-        return peopleLinerGame;
+        return people;
     }
 }

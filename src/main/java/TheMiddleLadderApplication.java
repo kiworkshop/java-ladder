@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class TheMiddleLadderApplication {
@@ -22,14 +23,16 @@ public class TheMiddleLadderApplication {
     }
 
     private static List<GameResult> makeGameResult(String inputResults) {
+        AtomicInteger index = new AtomicInteger();
         return Arrays.stream(inputResults.split(NAME_DELIMITER))
-                .map(GameResult::new)
+                .map((String name) -> new GameResult(name, index.getAndIncrement()))
                 .collect(Collectors.toList());
     }
 
     private static List<Person> makePeople(String inputString) {
+        AtomicInteger index = new AtomicInteger();
         return Arrays.stream(inputString.split(NAME_DELIMITER))
-                .map(Person::new)
+                .map((String name) -> new Person(name, index.getAndIncrement()))
                 .collect(Collectors.toList());
     }
 
