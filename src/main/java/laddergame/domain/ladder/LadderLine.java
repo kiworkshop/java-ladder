@@ -8,6 +8,10 @@ import java.util.Objects;
 
 public class LadderLine {
 
+    public static final String POINT= "|";
+    public static final String CONNECTION= "-----";
+    public static final String NON_CONNECTION= "     ";
+
     private final List<Point> points;
 
     public LadderLine(final List<Point> points) {
@@ -50,6 +54,17 @@ public class LadderLine {
 
     public int size() {
         return points.size();
+    }
+
+    public String lineToString() {
+        List<Point> points = getPoints();
+
+        String result = "     ";
+        for (Point point : points) {
+            String connectionString = point.connectionToString();
+            result += (POINT + connectionString);
+        }
+        return result;
     }
 
     public List<Point> getPoints() {

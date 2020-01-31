@@ -53,4 +53,11 @@ public enum Point {
     public boolean hasRightConnection() {
         return rightConnection;
     }
+
+    public String connectionToString() {
+        if (hasRightConnection()) {
+            return LadderLine.CONNECTION;
+        }
+        return LadderLine.NON_CONNECTION;
+    }
 }

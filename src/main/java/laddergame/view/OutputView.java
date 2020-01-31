@@ -2,14 +2,13 @@ package laddergame.view;
 
 import laddergame.domain.ladder.Ladder;
 import laddergame.domain.ladder.LadderLine;
-import laddergame.domain.ladder.Point;
 import laddergame.domain.player.Players;
 
 import java.util.List;
 
 public class OutputView {
 
-    private static String MESSAGE_GAME_RESULT = "실행결과";
+    private static final String MESSAGE_GAME_RESULT = "실행결과";
 
     public void printResult(Players players, Ladder ladder) {
         printResultMessage();
@@ -40,27 +39,8 @@ public class OutputView {
     }
 
     private void printLadderLine(LadderLine line) {
-        String lineString = lineToString(line);
+        String lineString = line.lineToString();
 
         System.out.println(lineString);
-    }
-
-    private String lineToString(LadderLine line) {
-        List<Point> points = line.getPoints();
-        String result = "     ";
-
-        for (Point point : points) {
-            String connectionString = connectionToString(point);
-            result += ("|" + connectionString);
-        }
-
-        return result;
-    }
-
-    private String connectionToString(Point point) {
-        if (point.hasRightConnection()) {
-            return "-----";
-        }
-        return "     ";
     }
 }
