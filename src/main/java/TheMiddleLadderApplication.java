@@ -25,11 +25,22 @@ public class TheMiddleLadderApplication {
     }
 
     private static void showGameResults(List<Person> peoplePlayed, List<GameResult> results) {
-        String userNameWantToKnowResult = Input.printResultAsk();
-        if (userNameWantToKnowResult.equals("all")) {
+        String targetUserName = Input.printResultAsk();
+        if (targetUserName.equals("all")) {
             ConsoleOutput.printAllResults(peoplePlayed, results);
+            return;
         }
+        int targetUserPosition = peoplePlayed
+                .stream()
+                .filter(person -> person.getName()
+                        .equals(targetUserName))
+                .collect(Collectors.toList())
+                .get(0)
+                .getPosition();
+        String result = results.get(targetUserPosition).getName();
+        ConsoleOutput.printOneResult(result);
     }
+
 
     private static List<GameResult> makeGameResult(String inputResults) {
         AtomicInteger index = new AtomicInteger();

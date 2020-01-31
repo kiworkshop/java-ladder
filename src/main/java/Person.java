@@ -25,6 +25,10 @@ public class Person implements Comparable<Person> {
         position--;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public void goRight() {
         position++;
     }

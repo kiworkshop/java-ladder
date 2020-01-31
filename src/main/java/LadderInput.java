@@ -9,10 +9,6 @@ public class LadderInput {
         this.height = height;
     }
 
-    public List<Person> getPeople() {
-        return people;
-    }
-
     public int getWidth() {
         return people.size() - 1;
     }

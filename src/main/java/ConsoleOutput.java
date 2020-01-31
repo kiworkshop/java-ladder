@@ -28,4 +28,10 @@ public class ConsoleOutput {
         }
         System.out.println();
     }
+
+    public static void printOneResult(String result) {
+        System.out.println("실행결과");
+        System.out.println(result);
+
+    }
 }

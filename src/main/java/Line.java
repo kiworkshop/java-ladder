@@ -68,17 +68,16 @@ public class Line {
 
     public List<Person> playLineGame(List<Person> people) {
         for (int barIndex = 0; barIndex < bars.size(); barIndex++) {
-            people = playBarGame(barIndex, bars.get(barIndex), people); //TODO need refactoring. 인수 3개까지 되던가?
+            playBarGame(barIndex, bars.get(barIndex), people);//TODO need refactoring. 인수 3개까지 되던가?
         }
         Collections.sort(people);
         return people;
     }
 
-    private List<Person> playBarGame(int barIndex, Bar bar, List<Person> people) {
+    private void playBarGame(int barIndex, Bar bar, List<Person> people) {
         if (bar.isExists()) {
             people.get(barIndex).goRight();
             people.get(barIndex + 1).goLeft();
         }
-        return people;
     }
 }
