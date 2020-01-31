@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class User {
 
   private final UserName userName;
@@ -18,5 +20,9 @@ public class User {
 
   public int getPosition() {
     return position;
+  }
+
+  public boolean hasUserName(UserName userName) {
+    return this.userName.equals(userName);
   }
 }

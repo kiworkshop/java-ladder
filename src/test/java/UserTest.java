@@ -14,4 +14,22 @@ public class UserTest {
     assertThat(user.getUserName()).isEqualTo(name);
     assertThat(user.getPosition()).isEqualTo(position);
   }
+
+  @Test
+  void hasUserName_SameName_ReturnTrue() {
+    // given
+    User user = User.with(UserName.of("same"), 0);
+    UserName userName = UserName.of("same");
+    // then
+    assertThat(user.hasUserName(userName)).isTrue();
+  }
+
+  @Test
+  void hasUserName_DifferentName_ReturnFalse() {
+    // given
+    User user = User.with(UserName.of("Diff"), 0);
+    UserName userName = UserName.of("diff");
+    // then
+    assertThat(user.hasUserName(userName)).isFalse();
+  }
 }

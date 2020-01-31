@@ -3,6 +3,9 @@ import java.util.Objects;
 
 public class Row {
 
+  public static final String LINE = "-----";
+  public static final String EMPTY_LINE = "     ";
+
   private int lenOfRow;
   private List<Line> lines;
 
@@ -25,6 +28,13 @@ public class Row {
     }
 
     return prevPosition;
+  }
+
+  public String getLineStartingWith(int position) {
+    if (hasLineStartingWith(position)) {
+      return LINE;
+    }
+    return EMPTY_LINE;
   }
 
   public boolean hasLineStartingWith(int prevPosition) {
