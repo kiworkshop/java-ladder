@@ -5,17 +5,73 @@ import java.util.Scanner;
 
 public class LadderGame {
 
-    private List<String> users = new ArrayList<>();
+    private Users users = new Users();
     private int ladderHeight;
-    private Lines lines;
+    private Ladder ladder;
+    private List<String> ladderGameResult = new ArrayList<>();
+
 
     private static final String LINE_SAMPLE  = "-----|";
     private static final String SPACE_SAMPLE = "     |";
 
+    void run(){
+        constructRandomLines();
+        printResult();
+        ladder.getLadder()
+                .forEach(line->rightAndLeftReversalLine(line));
+    }
+
+    private void constructRandomLines() {
+        ladder = new Ladder(users.getSize(),ladderHeight);
+    }
+
+    private void printResult() {
+        System.out.println("\n실행결과\n");
+        users.printUsers();
+        System.out.println();
+        ladder.getLadder()
+                .forEach(line-> oneLineProcess(line));
+        printLadderGameResult();
+    }
+
+    public void printLadderGameResult() {
+        ladderGameResult.forEach(result -> System.out.format("%6s",result));
+    }
+
+    private void rightAndLeftReversalLine(Line line) {
+        line.getLinePositions()
+                .forEach(index -> users.rightAndLeftReversal(index));
+    }
+
+    public void getResult() {
+        System.out.println("\n결과를 보고 싶은 사람은?");
+        Scanner scan = new Scanner(System.in);
+        String userNameInput = scan.nextLine();
+        if(userNameInput.equals("all")) {
+            System.out.println("실행 결과");
+            for(int i = 0; i < users.getSize() ; i ++){
+                System.out.println(users.getUserByIndex(i) + " : " + ladderGameResult.get(i));
+            }
+        }
+        else if(users.contains(userNameInput)){
+            System.out.println("\n실행 결과");
+            System.out.println(ladderGameResult.get(users.getIndexByUsername(userNameInput)));
+        }
+
+    }
 
     public LadderGame() {
         sInUserNames();
+        sInLadderGameResult();
         sInLadderHeight();
+    }
+
+    private void sInLadderGameResult() {
+        System.out.println("\n실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+        Scanner scan = new Scanner(System.in);
+        String userNameInput = scan.nextLine();
+        String[] userNameArr = userNameInput.split(",");
+        ladderGameResult.addAll(Arrays.asList(userNameArr));
     }
 
     private void sInUserNames() {
@@ -32,22 +88,10 @@ public class LadderGame {
         ladderHeight = scan.nextInt();
     }
 
-    void run(){
-        constructRandomLines();
-        printResult();
-    }
-
-    private void printResult() {
-        System.out.println("\n실행결과\n");
-        users.forEach(user -> printUser(user));
-        System.out.println();
-        lines.getLines()
-        .forEach(line-> oneLineProcess(line));
-    }
     private void oneLineProcess(Line line) {
 
         printLine(SPACE_SAMPLE);
-        int ladderWidth = users.size() - 1;
+        int ladderWidth = users.getSize() - 1;
 
         for(int i = 0; i < ladderWidth; i++){
             onePartOfLineProcess(line, i);
@@ -66,22 +110,4 @@ public class LadderGame {
     private void printLine(String line){
         System.out.print(line);
     }
-
-    private void printUser(String user) {
-        System.out.format("%6s",user);
-    }
-
-
-    private void constructRandomLines() {
-        lines = new Lines(users.size(),ladderHeight);
-    }
-
-    public List<String> getUsers() {
-        return users;
-    }
-
-    public int getLadderHeight() {
-        return ladderHeight;
-    }
-
 }
