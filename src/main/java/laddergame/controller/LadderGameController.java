@@ -23,10 +23,15 @@ public class LadderGameController {
         String playerNames = inputView.getPlayerNamesFromConsole();
         Players players = ladderGameService.createPlayers(playerNames);
 
+        String gameResults = inputView.getGameResultFromConsole();
+        //Results results = ladderGameService.createResults(gameResults);
+
         int ladderHeightInput = inputView.getLadderHeightFromConsole();
         LadderHeight ladderHeight = ladderGameService.createLadderHeight(ladderHeightInput);
 
         Ladder ladder = ladderGameService.createLadder(players, ladderHeight, new RandomLadderCreationStrategy());
+
+        //LadderGame ladderGame = ladderGameService.createLadderGame(players, results, ladder);
 
         outputView.printResult(players, ladder);
     }
