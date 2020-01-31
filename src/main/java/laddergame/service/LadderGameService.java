@@ -5,11 +5,10 @@ import laddergame.domain.ladder.strategy.LadderCreationStrategy;
 import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Player;
 import laddergame.domain.player.Players;
+import laddergame.domain.result.Result;
 import laddergame.domain.result.Results;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LadderGameService {
 
@@ -28,7 +27,7 @@ public class LadderGameService {
     }
 
     private String[] parse(String names) {
-        return names.split(DELIMITER_PLAYER_NAME);
+        return names.split(NAME_DELIMITER);
     }
 
     public LadderHeight createLadderHeight(int ladderHeightInput) {
