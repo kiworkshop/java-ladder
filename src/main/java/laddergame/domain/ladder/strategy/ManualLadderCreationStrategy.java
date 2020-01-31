@@ -1,4 +1,4 @@
-package laddergame.domain.ladder.Strategy;
+package laddergame.domain.ladder.strategy;
 
 public class ManualLadderCreationStrategy implements LadderCreationStrategy {
 

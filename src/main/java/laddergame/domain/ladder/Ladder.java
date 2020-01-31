@@ -1,6 +1,6 @@
 package laddergame.domain.ladder;
 
-import laddergame.domain.ladder.Strategy.LadderCreationStrategy;
+import laddergame.domain.ladder.strategy.LadderCreationStrategy;
 import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Players;
 

@@ -1,7 +1,7 @@
 package laddergame.controller;
 
 import laddergame.domain.ladder.Ladder;
-import laddergame.domain.ladder.Strategy.RandomLadderCreationStrategy;
+import laddergame.domain.ladder.strategy.RandomLadderCreationStrategy;
 import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Players;
 import laddergame.service.LadderGameService;
