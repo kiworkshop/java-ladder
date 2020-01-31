@@ -20,10 +20,10 @@ public class LadderGameService {
         return new Players(playerList);
     }
 
-    public Results createResults(String gameResults) {
+    public Results createResults(String gameResults, int playerCount) {
         String[] parsedResultNames = parse(gameResults);
         List<Result> resultList = Results.createResultList(parsedResultNames);
-        return new Results(resultList);
+        return new Results(resultList, playerCount);
     }
 
     private String[] parse(String names) {

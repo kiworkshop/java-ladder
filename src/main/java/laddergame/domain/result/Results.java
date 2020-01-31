@@ -8,7 +8,11 @@ public class Results {
 
     private final List<Result> results;
 
-    public Results(List<Result> results) {
+    public Results(final List<Result> results, int playerCount) {
+        if (!haveSameCount(results.size(), playerCount)) {
+            throw new IllegalArgumentException();
+        }
+
         this.results = results;
     }
 
@@ -17,5 +21,9 @@ public class Results {
                 .map(String::trim)
                 .map(Result::new)
                 .collect(Collectors.toList());
+    }
+
+    private boolean haveSameCount(int resultCount, int playerCount) {
+        return resultCount == playerCount;
     }
 }

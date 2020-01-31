@@ -25,7 +25,7 @@ public class LadderGameController {
         Players players = ladderGameService.createPlayers(playerNames);
 
         String gameResults = inputView.getGameResultFromConsole();
-        Results results = ladderGameService.createResults(gameResults);
+        Results results = ladderGameService.createResults(gameResults, players.size());
 
         int ladderHeightInput = inputView.getLadderHeightFromConsole();
         LadderHeight ladderHeight = ladderGameService.createLadderHeight(ladderHeightInput);
