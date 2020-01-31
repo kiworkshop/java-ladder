@@ -53,7 +53,7 @@ public class TheMiddleLadderApplication {
                 .collect(Collectors.toList());
     }
 
-    private static List<Person> makePeople(String inputString) {
+    public static List<Person> makePeople(String inputString) {
         AtomicInteger index = new AtomicInteger();
         return Arrays.stream(inputString.split(NAME_DELIMITER))
                 .map((String name) -> new Person(name, index.getAndIncrement()))

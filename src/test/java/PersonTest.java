@@ -7,7 +7,7 @@ class PersonTest {
     @Test
     void testValidateName() {
         assertThatThrownBy(() -> {
-            Person person = new Person("abcdef");
+            Person person = new Person("abcdef", 1);
         });
     }
 
