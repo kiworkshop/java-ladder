@@ -7,7 +7,7 @@ public class LadderHeight {
     private final int height;
 
     public LadderHeight(int height) {
-        if (isLongerThanMinLength(height)) {
+        if (!isLongerThanMinLength(height)) {
             throw new IllegalArgumentException();
         }
 
