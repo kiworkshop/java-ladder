@@ -23,8 +23,4 @@ public class Ladder {
   public List<Row> getRows() {
     return rows;
   }
-
-  public void show() {
-    rows.forEach(Row::show);
-  }
 }

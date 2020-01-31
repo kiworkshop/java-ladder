@@ -41,4 +41,20 @@ class ConsoleInputTest {
     assertThat(prizes.get(1).getPrizeName()).isEqualTo("3000");
     assertThat(prizes.get(1).getPosition()).isEqualTo(1);
   }
+  
+  @Test
+  void isConvertibleIntoInteger_InputInteger_ReturnTrue() {
+    // given
+    String str = "7";
+    // then
+    assertThat(ConsoleInput.isConvertibleIntoInteger(str)).isTrue();
+  }
+
+  @Test
+  void isConvertibleIntoInteger_InputNotInteger_ReturnFalse() {
+    // given
+    String str = "notConvertible";
+    // then
+    assertThat(ConsoleInput.isConvertibleIntoInteger(str)).isFalse();
+  }
 }

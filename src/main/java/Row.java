@@ -3,11 +3,6 @@ import java.util.Objects;
 
 public class Row {
 
-  public static final String ROW_BAR = "|";
-  public static final String LINE = "-----";
-  public static final String BLANK_SPACE_BETWEEN_BARS = "     ";
-  public static final String HEAD_OF_ROW = "   ";
-
   private int lenOfRow;
   private List<Line> lines;
 
@@ -18,29 +13,6 @@ public class Row {
 
   public static Row of(int lenOfRow, List<Line> lines) {
     return new Row(lenOfRow, lines);
-  }
-
-  public void show() {
-    String row = rowToString();
-    System.out.print(HEAD_OF_ROW);
-    System.out.println(row);
-  }
-
-  private String rowToString() {
-    String row = "";
-    for (int position=0; position<lenOfRow; position++) {
-      String line = getLineStartingWith(position);
-      row = row.concat(ROW_BAR + line);
-    }
-    return row.concat(ROW_BAR);
-  }
-
-  private String getLineStartingWith(int point) {
-    boolean isLineStartingWithPointExist = lines.stream().anyMatch(line -> line.isStartingWith(point));
-    if (isLineStartingWithPointExist) {
-      return LINE;
-    }
-    return BLANK_SPACE_BETWEEN_BARS;
   }
 
   public int getNextPosition(int prevPosition) {
@@ -55,7 +27,7 @@ public class Row {
     return prevPosition;
   }
 
-  private boolean hasLineStartingWith(int prevPosition) {
+  public boolean hasLineStartingWith(int prevPosition) {
     return lines.stream().anyMatch(line -> line.isStartingWith(prevPosition));
   }
 

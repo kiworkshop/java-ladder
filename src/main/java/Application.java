@@ -1,8 +1,10 @@
 public class Application {
   public static void main(String[] args) {
-    LadderInputData ladderInputData = ConsoleInput.getLadderData();
-    LadderGame ladderGame = LadderGame.with(ladderInputData, new RandomRowGeneratorStrategy());
+    LadderGameInputData ladderGameInputData = ConsoleInput.getLadderGameInputData();
+    LadderGame ladderGame = LadderGame.with(ladderGameInputData, new RandomRowGeneratorStrategy());
     ladderGame.generateLadder();
-    ladderGame.showLadderGame();
+    ladderGame.run();
+    LadderGameOutputData ladderGameOutputData = ladderGame.getLadderGameOutputData();
+    ConsoleOutput.showLadderGameResultWith(ladderGameOutputData);
   }
 }

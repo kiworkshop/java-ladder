@@ -19,8 +19,4 @@ public class User {
   public int getPosition() {
     return position;
   }
-
-  public void showUserName() {
-    userName.show();
-  }
 }

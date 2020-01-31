@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class LadderInputData {
+public class LadderGameInputData {
 
   public static final String ERROR_USER_NUMS_PRIZE_NUMS_NOT_EQUAL = "참가자 수와 게임 상품 수가 일치하지 않습니다.";
 
@@ -8,7 +8,7 @@ public class LadderInputData {
   private LadderHeight height;
   private List<Prize> prizes;
 
-  private LadderInputData(List<User> users, LadderHeight height, List<Prize> prizes) {
+  private LadderGameInputData(List<User> users, LadderHeight height, List<Prize> prizes) {
     validate(users, prizes);
     this.users = users;
     this.height = height;
@@ -21,8 +21,8 @@ public class LadderInputData {
     }
   }
 
-  public static LadderInputData of(List<User> users, LadderHeight height, List<Prize> prizes) {
-    return new LadderInputData(users, height, prizes);
+  public static LadderGameInputData of(List<User> users, LadderHeight height, List<Prize> prizes) {
+    return new LadderGameInputData(users, height, prizes);
   }
 
   public List<User> getUsers() {

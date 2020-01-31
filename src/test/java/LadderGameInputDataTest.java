@@ -6,12 +6,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class LadderInputDataTest {
-  public static LadderInputData getLadderInputDataFixture(String userName, int height, String prizeName) {
+public class LadderGameInputDataTest {
+  public static LadderGameInputData getLadderInputDataFixture(String userName, int height, String prizeName) {
     List<User> users = ConsoleInputTest.getUsersFixture(userName);
     LadderHeight ladderHeight = LadderHeightTest.getLadderHeightFixture(height);
     List<Prize> prizes = ConsoleInputTest.getPrizesFixture(prizeName);
-    return LadderInputData.of(users, ladderHeight, prizes);
+    return LadderGameInputData.of(users, ladderHeight, prizes);
   }
 
   @Test
@@ -25,11 +25,11 @@ public class LadderInputDataTest {
     prizes.add(Prize.with("꽝",0));
     prizes.add(Prize.with("3000",1));
     // when
-    LadderInputData ladderInputData = LadderInputData.of(users, height, prizes);
+    LadderGameInputData ladderGameInputData = LadderGameInputData.of(users, height, prizes);
     // then
-    assertThat(ladderInputData.getUsers()).isEqualTo(users);
-    assertThat(ladderInputData.getHeight()).isEqualTo(height);
-    assertThat(ladderInputData.getPrizes()).isEqualTo(prizes);
+    assertThat(ladderGameInputData.getUsers()).isEqualTo(users);
+    assertThat(ladderGameInputData.getHeight()).isEqualTo(height);
+    assertThat(ladderGameInputData.getPrizes()).isEqualTo(prizes);
   }
 
   @Test
@@ -42,6 +42,6 @@ public class LadderInputDataTest {
     prizes.add(Prize.with("꽝",0));
     prizes.add(Prize.with("3000",1));
     // then
-    assertThatThrownBy(() -> LadderInputData.of(users, height, prizes)).isInstanceOf(IllegalArgumentException.class);
+    assertThatThrownBy(() -> LadderGameInputData.of(users, height, prizes)).isInstanceOf(IllegalArgumentException.class);
   }
 }
