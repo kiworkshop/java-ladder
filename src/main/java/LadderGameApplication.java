@@ -1,4 +1,4 @@
-public class Main {
+public class LadderGameApplication {
 
   public static void main(String[] args) {
     UserInput userInput = new UserInput().getUserInput();
@@ -7,10 +7,6 @@ public class Main {
     userInput.printUsers();
     ladderGame.printLadders();
     userInput.printResultOptions();
-    // TODO: 2020-01-27 while achieving a certain condition....
-    while (true) {
-      int resultIndex = ladderGame.run(userInput.getPlayingUserIndex());
-      userInput.printResult(resultIndex);
-    }
+    LadderGameRunner.of(userInput, ladderGame).showGameResult();
   }
 }

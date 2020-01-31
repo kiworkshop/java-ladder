@@ -62,7 +62,18 @@ public class UserInput {
   }
 
   public void printResult(int resultIndex) {
+    if (resultIndex == resultOptions.size()) {
+      printAllUserResults();
+      return;
+    }
     System.out.println(resultOptions.get(resultIndex).toString());
+  }
+
+  private void printAllUserResults() {
+    for (int i = 0; i < users.size(); i++) {
+      System.out.print(users.get(i) + ": ");
+      System.out.println(resultOptions.get(i));
+    }
   }
 
   public List<User> getUsers() {
