@@ -2,10 +2,8 @@ package laddergame.domain.player;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Players {
 
@@ -26,6 +24,13 @@ public class Players {
 
     public int size() {
         return players.size();
+    }
+
+    public static List<Player> createPlayerList(String[] playerNames) {
+        return Arrays.stream(playerNames)
+                .map(String::trim)
+                .map(Player::new)
+                .collect(Collectors.toList());
     }
 
     public String getAlignedPlayerNames() {

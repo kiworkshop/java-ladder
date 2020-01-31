@@ -4,6 +4,7 @@ import laddergame.domain.ladder.Ladder;
 import laddergame.domain.ladder.strategy.RandomLadderCreationStrategy;
 import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Players;
+import laddergame.domain.result.Results;
 import laddergame.service.LadderGameService;
 import laddergame.view.InputView;
 import laddergame.view.OutputView;
@@ -24,7 +25,7 @@ public class LadderGameController {
         Players players = ladderGameService.createPlayers(playerNames);
 
         String gameResults = inputView.getGameResultFromConsole();
-        //Results results = ladderGameService.createResults(gameResults);
+        Results results = ladderGameService.createResults(gameResults);
 
         int ladderHeightInput = inputView.getLadderHeightFromConsole();
         LadderHeight ladderHeight = ladderGameService.createLadderHeight(ladderHeightInput);

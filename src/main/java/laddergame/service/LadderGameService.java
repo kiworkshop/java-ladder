@@ -5,6 +5,7 @@ import laddergame.domain.ladder.strategy.LadderCreationStrategy;
 import laddergame.domain.ladderheight.LadderHeight;
 import laddergame.domain.player.Player;
 import laddergame.domain.player.Players;
+import laddergame.domain.result.Results;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,23 +13,22 @@ import java.util.stream.Collectors;
 
 public class LadderGameService {
 
-    private static final String DELIMITER_PLAYER_NAME = ",";
+    private static final String NAME_DELIMITER = ",";
 
     public Players createPlayers(String playerNames) {
-        String[] parsedPlayerNames = parsePlayerNames(playerNames);
-        List<Player> playerList = createPlayerList(parsedPlayerNames);
+        String[] parsedPlayerNames = parse(playerNames);
+        List<Player> playerList = Players.createPlayerList(parsedPlayerNames);
         return new Players(playerList);
     }
 
-    private String[] parsePlayerNames(String playerNames) {
-        return playerNames.split(DELIMITER_PLAYER_NAME);
+    public Results createResults(String gameResults) {
+        String[] parsedResultNames = parse(gameResults);
+        List<Result> resultList = Results.createResultList(parsedResultNames);
+        return new Results(resultList);
     }
 
-    private List<Player> createPlayerList(String[] playerNames) {
-        return Arrays.stream(playerNames)
-                .map(String::trim)
-                .map(Player::new)
-                .collect(Collectors.toList());
+    private String[] parse(String names) {
+        return names.split(DELIMITER_PLAYER_NAME);
     }
 
     public LadderHeight createLadderHeight(int ladderHeightInput) {
