@@ -18,7 +18,7 @@ public class RandomRowGenerateStrategy implements RowGenerateStrategy {
             if (i == 0) {
                 steps.add(generateRandomStep());
             } else {
-                if (!steps.get(i-1).exist()) {
+                if (!steps.get(i - 1).exist()) {
                     steps.add(generateRandomStep());
                 } else {
                     steps.add(generateNonExistingStep());

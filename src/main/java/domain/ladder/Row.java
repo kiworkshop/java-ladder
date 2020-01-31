@@ -12,17 +12,21 @@ public class Row {
 
     public int getNextIndexFrom(int index) {
         int prevIndex = index - 1;
-        if ( prevIndex >= 0 ) {
-            if (steps.get(prevIndex).exist()) {
-                return --index;
-            }
+        if (validateIndex(prevIndex) && existingStep(prevIndex)) {
+            return --index;
         }
-        if (index <= steps.size()) {
-            if (steps.get(index).exist()) {
-                return ++index;
-            }
+        if (validateIndex(index) && existingStep(index)) {
+            return ++index;
         }
         return index;
+    }
+
+    private boolean existingStep(int index) {
+        return steps.get(index).exist();
+    }
+
+    private boolean validateIndex(int index) {
+        return 0 <= index && index < steps.size();
     }
 
     public List<Step> getSteps() {

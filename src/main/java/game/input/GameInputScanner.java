@@ -11,6 +11,11 @@ public class GameInputScanner {
         return scanner.nextLine();
     }
 
+    public static String getResults() {
+        System.out.println("사다리 게임 상품을 입력하세요. 상품은 쉼표(,) 단위로 구분됩니다.");
+        return scanner.nextLine();
+    }
+
     public static String getHeight() {
         System.out.println("사다리 높이를 입력하세요.");
         return scanner.nextLine();

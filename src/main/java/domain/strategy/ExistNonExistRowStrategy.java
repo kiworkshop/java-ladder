@@ -5,7 +5,7 @@ import domain.ladder.Step;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExistNonExistRowStrategy implements RowGenerateStrategy{
+public class ExistNonExistRowStrategy implements RowGenerateStrategy {
     @Override
     public List<Step> generateSteps(int numberOfSteps) {
         List<Step> steps = new ArrayList<>();

@@ -3,8 +3,11 @@ package game.output;
 import domain.ladder.Ladder;
 import domain.ladder.Row;
 import domain.ladder.Step;
+import domain.result.LadderResult;
+import domain.result.Result;
 import domain.user.User;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +18,16 @@ public class GameOutputView {
         String usersOnLadder = String.join(" ", userNames);
         System.out.println(usersOnLadder);
 
+    }
+
+    public static void printResults(List<Result> results) {
+        List<String> resultList = results.stream().map(Result::getFormattedResult).collect(Collectors.toList());
+        String resultsUnderLadder = String.join(" ", resultList);
+        System.out.println(resultsUnderLadder);
+    }
+
+    public static void printLadderResult(LadderResult ladderResult) {
+        System.out.println(ladderResult);
     }
 
     public static void printLadder(Ladder ladder) {
