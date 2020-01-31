@@ -1,11 +1,13 @@
 package game;
 
+import domain.ladder.Height;
 import domain.ladder.Ladder;
 import domain.result.LadderResult;
 import domain.result.Result;
 import domain.strategy.RandomRowGenerateStrategy;
 import domain.strategy.RowGenerateStrategy;
 import domain.user.User;
+import game.data.LadderData;
 import game.input.GameInputScanner;
 import game.output.GameOutputView;
 
@@ -19,12 +21,17 @@ public class Game {
     private static final RowGenerateStrategy rowGenerateStrategy = new RandomRowGenerateStrategy();
 
     public void play() {
+        LadderData ladderData = generateLadderData();
+        Ladder ladder = generateLadder(ladderData);
+        printResult(ladder);
+    }
+
+    private LadderData generateLadderData() {
         List<User> users = generateUsers();
         List<Result> results = generateResults();
         validateResult(users, results);
-        int height = generateHeight();
-        Ladder ladder = generateLadder(users, height);
-        printResult(users, ladder, results);
+        Height height = generateHeight();
+        return new LadderData(users, results, height);
     }
 
     private List<User> generateUsers() {
@@ -45,24 +52,23 @@ public class Game {
         }
     }
 
-    private int generateHeight() {
+    private Height generateHeight() {
         String heightInput = GameInputScanner.getHeight();
         try {
-            return Integer.parseInt(heightInput);
+            int height = Integer.parseInt(heightInput);
+            return Height.from(height);
         } catch (NumberFormatException ne) {
             throw new IllegalArgumentException();
         }
     }
 
-    private Ladder generateLadder(List<User> users, int height) {
-        return new Ladder(users.size(), height, rowGenerateStrategy);
+    private Ladder generateLadder(LadderData ladderData) {
+        return new Ladder(ladderData, rowGenerateStrategy);
     }
 
-    private void printResult(List<User> users, Ladder ladder, List<Result> results) {
-        GameOutputView.printUsers(users);
+    private void printResult(Ladder ladder) {
         GameOutputView.printLadder(ladder);
-        GameOutputView.printResults(results);
-        LadderResult ladderResult = ladder.getLadderResult(users, results);
+        LadderResult ladderResult = ladder.getLadderResult();
         GameOutputView.printLadderResult(ladderResult);
     }
 }

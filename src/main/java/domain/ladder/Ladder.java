@@ -4,6 +4,7 @@ import domain.result.LadderResult;
 import domain.result.Result;
 import domain.strategy.RowGenerateStrategy;
 import domain.user.User;
+import game.data.LadderData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,13 +13,17 @@ import java.util.Map;
 
 public class Ladder {
 
+    private List<User> users;
     private List<Row> rows = new ArrayList<>();
+    private List<Result> results;
 
-    public Ladder(int numberOfUsers, int height, RowGenerateStrategy rowGenerateStrategy) {
-        int numberOfSteps = numberOfUsers - 1;
-        for (int i = 0; i < height; i++) {
+    public Ladder(LadderData ladderData, RowGenerateStrategy rowGenerateStrategy) {
+        int numberOfSteps = ladderData.getUserSize() - 1;
+        for (int i = 0; i < ladderData.getHeight(); i++) {
             rows.add(new Row(rowGenerateStrategy.generateSteps(numberOfSteps)));
         }
+        this.users = ladderData.getUsers();
+        this.results = ladderData.getResults();
     }
 
     public int getResultFrom(int index) {
@@ -28,7 +33,7 @@ public class Ladder {
         return index;
     }
 
-    public LadderResult getLadderResult(List<User> users, List<Result> results) {
+    public LadderResult getLadderResult() {
         Map<User, Result> ladderResult = new HashMap<>();
 
         for (int i = 0; i < users.size(); i++) {
@@ -41,7 +46,15 @@ public class Ladder {
         return new LadderResult(ladderResult);
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
     public List<Row> getRows() {
         return rows;
+    }
+
+    public List<Result> getResults() {
+        return results;
     }
 }

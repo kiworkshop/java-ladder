@@ -11,7 +11,7 @@ public class Result {
         if (result.isEmpty()) {
             throw new IllegalArgumentException();
         }
-        if ( result.length() > RESULT_LIMIT_LENGTH) {
+        if (result.length() > RESULT_LIMIT_LENGTH) {
             throw new IllegalArgumentException();
         }
         return new Result(result);
