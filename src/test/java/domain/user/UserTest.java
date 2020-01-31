@@ -1,6 +1,7 @@
 package domain.user;
 
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -11,10 +12,10 @@ public class UserTest {
 
     @Test
     void testUser() {
-        User user = new User(JAEJU_NAME);
+        User user = User.from(JAEJU_NAME);
         assertThat(user).hasFieldOrPropertyWithValue("name", JAEJU_NAME);
 
-        assertThatThrownBy(() -> new User(OVER_LIMITATION_NAME))
+        assertThatThrownBy(() -> User.from(OVER_LIMITATION_NAME))
                 .isInstanceOf(IllegalArgumentException.class);
 
     }

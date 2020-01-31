@@ -30,13 +30,13 @@ public class Game {
     private List<User> generateUsers() {
         String userNameInput = GameInputScanner.getUserNames();
         List<String> names = Arrays.asList(userNameInput.split(USER_NAME_INPUT_DELIMITER));
-        return names.stream().map(User::new).collect(Collectors.toList());
+        return names.stream().map(User::from).collect(Collectors.toList());
     }
 
     private List<Result> generateResults() {
         String resultsInput = GameInputScanner.getResults();
         List<String> results = Arrays.asList(resultsInput.split(USER_NAME_INPUT_DELIMITER));
-        return results.stream().map(Result::new).collect(Collectors.toList());
+        return results.stream().map(Result::from).collect(Collectors.toList());
     }
 
     private void validateResult(List<User> users, List<Result> results) {
