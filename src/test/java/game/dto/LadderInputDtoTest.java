@@ -6,15 +6,16 @@ import domain.user.User;
 
 import java.util.List;
 
-import static domain.user.UserTest.getUsersFixture;
+import static domain.ladder.HeightTest.getFiveLevelOfHeightFixture;
 import static domain.result.ResultTest.getResultsFixture;
+import static domain.user.UserTest.getUsersFixture;
 
-public class LadderDataTest {
+public class LadderInputDtoTest {
 
     public static LadderInputDto getLadderDataFixture() {
         List<User> users = getUsersFixture();
         List<Result> results = getResultsFixture();
-        Height height = Height.from(5);
+        Height height = getFiveLevelOfHeightFixture();
         LadderInputDto ladderInputDto = new LadderInputDto(users, results, height);
         return ladderInputDto;
     }

@@ -1,8 +1,8 @@
 package domain.ladder;
 
+import domain.factory.RowFactory;
 import domain.result.LadderResult;
 import domain.result.Result;
-import domain.factory.RowFactory;
 import domain.user.User;
 import game.dto.LadderInputDto;
 

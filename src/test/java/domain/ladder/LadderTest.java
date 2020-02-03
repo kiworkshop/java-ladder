@@ -8,7 +8,7 @@ import game.dto.LadderInputDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static game.dto.LadderDataTest.getLadderDataFixture;
+import static game.dto.LadderInputDtoTest.getLadderDataFixture;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LadderTest {
