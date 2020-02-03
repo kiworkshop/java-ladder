@@ -2,9 +2,9 @@ package domain.ladder;
 
 import domain.result.LadderResult;
 import domain.result.Result;
-import domain.strategy.RowGenerateStrategy;
+import domain.factory.RowFactory;
 import domain.user.User;
-import game.data.LadderData;
+import game.dto.LadderInputDto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,13 +17,13 @@ public class Ladder {
     private List<Row> rows = new ArrayList<>();
     private List<Result> results;
 
-    public Ladder(LadderData ladderData, RowGenerateStrategy rowGenerateStrategy) {
-        int numberOfSteps = ladderData.getUserSize() - 1;
-        for (int i = 0; i < ladderData.getHeight(); i++) {
-            rows.add(new Row(rowGenerateStrategy.generateSteps(numberOfSteps)));
+    public Ladder(LadderInputDto ladderInputDto, RowFactory rowFactory) {
+        int numberOfSteps = ladderInputDto.getUserSize() - 1;
+        for (int i = 0; i < ladderInputDto.getHeight(); i++) {
+            rows.add(new Row(rowFactory.generateSteps(numberOfSteps)));
         }
-        this.users = ladderData.getUsers();
-        this.results = ladderData.getResults();
+        this.users = ladderInputDto.getUsers();
+        this.results = ladderInputDto.getResults();
     }
 
     public int getResultFrom(int index) {

@@ -1,4 +1,4 @@
-package domain.strategy;
+package domain.factory;
 
 import domain.ladder.Step;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RandomRowGenerateStrategy implements RowGenerateStrategy {
+public class RandomRowFactory implements RowFactory {
 
     private static final Random random = new Random();
 

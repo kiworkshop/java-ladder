@@ -4,10 +4,10 @@ import domain.ladder.Height;
 import domain.ladder.Ladder;
 import domain.result.LadderResult;
 import domain.result.Result;
-import domain.strategy.RandomRowGenerateStrategy;
-import domain.strategy.RowGenerateStrategy;
+import domain.factory.RandomRowFactory;
+import domain.factory.RowFactory;
 import domain.user.User;
-import game.data.LadderData;
+import game.dto.LadderInputDto;
 import game.input.GameInputScanner;
 import game.output.GameOutputView;
 
@@ -18,20 +18,20 @@ import java.util.stream.Collectors;
 public class Game {
 
     private static final String USER_NAME_INPUT_DELIMITER = ",";
-    private static final RowGenerateStrategy rowGenerateStrategy = new RandomRowGenerateStrategy();
+    private static final RowFactory ROW_FACTORY = new RandomRowFactory();
 
     public void play() {
-        LadderData ladderData = generateLadderData();
-        Ladder ladder = generateLadder(ladderData);
+        LadderInputDto ladderInputDto = generateLadderData();
+        Ladder ladder = generateLadder(ladderInputDto);
         printResult(ladder);
     }
 
-    private LadderData generateLadderData() {
+    private LadderInputDto generateLadderData() {
         List<User> users = generateUsers();
         List<Result> results = generateResults();
         validateResult(users, results);
         Height height = generateHeight();
-        return new LadderData(users, results, height);
+        return new LadderInputDto(users, results, height);
     }
 
     private List<User> generateUsers() {
@@ -62,8 +62,8 @@ public class Game {
         }
     }
 
-    private Ladder generateLadder(LadderData ladderData) {
-        return new Ladder(ladderData, rowGenerateStrategy);
+    private Ladder generateLadder(LadderInputDto ladderInputDto) {
+        return new Ladder(ladderInputDto, ROW_FACTORY);
     }
 
     private void printResult(Ladder ladder) {
