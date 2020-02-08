@@ -8,8 +8,8 @@ import domain.result.LadderResult;
 import domain.result.Result;
 import domain.user.User;
 import game.dto.LadderInputDto;
-import game.input.GameInputScanner;
-import game.output.GameOutputView;
+import view.input.GameInputScanner;
+import view.output.GameOutputView;
 
 import java.util.Arrays;
 import java.util.List;

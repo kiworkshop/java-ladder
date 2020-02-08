@@ -1,4 +1,4 @@
-package game.input;
+package view.input;
 
 import java.util.Scanner;
 

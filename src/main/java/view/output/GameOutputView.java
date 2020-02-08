@@ -1,4 +1,4 @@
-package game.output;
+package view.output;
 
 import domain.ladder.Ladder;
 import domain.ladder.Row;
