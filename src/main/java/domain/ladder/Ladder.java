@@ -1,10 +1,10 @@
 package domain.ladder;
 
+import controller.dto.LadderInputDto;
 import domain.factory.RowFactory;
 import domain.result.LadderResult;
 import domain.result.Result;
 import domain.user.User;
-import game.dto.LadderInputDto;
 
 import java.util.ArrayList;
 import java.util.HashMap;

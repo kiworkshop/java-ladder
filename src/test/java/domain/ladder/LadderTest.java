@@ -1,10 +1,10 @@
 package domain.ladder;
 
+import controller.dto.LadderInputDto;
 import domain.factory.ExistNonExistRowFactory;
 import domain.factory.NonExistRowFactory;
 import domain.factory.RowFactory;
 import domain.result.LadderResult;
-import game.dto.LadderInputDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

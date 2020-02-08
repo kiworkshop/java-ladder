@@ -1,5 +1,6 @@
-package game;
+package controller;
 
+import controller.dto.LadderInputDto;
 import domain.factory.RandomRowFactory;
 import domain.factory.RowFactory;
 import domain.ladder.Height;
@@ -7,7 +8,6 @@ import domain.ladder.Ladder;
 import domain.result.LadderResult;
 import domain.result.Result;
 import domain.user.User;
-import game.dto.LadderInputDto;
 import view.input.GameInputScanner;
 import view.output.GameOutputView;
 
@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Game {
+public class LadderController {
 
     private static final String USER_NAME_INPUT_DELIMITER = ",";
     private static final RowFactory ROW_FACTORY = new RandomRowFactory();
@@ -79,4 +79,5 @@ public class Game {
         LadderResult ladderResult = ladder.getLadderResult();
         GameOutputView.printLadderResult(ladderResult);
     }
+
 }

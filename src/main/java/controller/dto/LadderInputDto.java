@@ -1,4 +1,4 @@
-package game.dto;
+package controller.dto;
 
 import domain.ladder.Height;
 import domain.result.Result;
