@@ -23,7 +23,8 @@ public class Game {
     public void play() {
         LadderInputDto ladderInputDto = generateLadderData();
         Ladder ladder = generateLadder(ladderInputDto);
-        printResult(ladder);
+        GameOutputView.printLadder(ladder);
+        showResult(ladder);
     }
 
     private LadderInputDto generateLadderData() {
@@ -66,8 +67,15 @@ public class Game {
         return new Ladder(ladderInputDto, ROW_FACTORY);
     }
 
-    private void printResult(Ladder ladder) {
-        GameOutputView.printLadder(ladder);
+    private void showResult(Ladder ladder) {
+        while (true) {
+            String userName = GameInputScanner.getUserNameForResult();
+            if ("all".equals(userName)) {
+                break;
+            }
+            Result result = ladder.getResultFrom(userName);
+            GameOutputView.printResult(result);
+        }
         LadderResult ladderResult = ladder.getLadderResult();
         GameOutputView.printLadderResult(ladderResult);
     }

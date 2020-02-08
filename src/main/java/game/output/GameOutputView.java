@@ -58,4 +58,8 @@ public class GameOutputView {
         }
         return "     ";
     }
+
+    public static void printResult(Result result) {
+        System.out.println(result);
+    }
 }

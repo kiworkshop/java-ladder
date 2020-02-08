@@ -20,4 +20,9 @@ public class GameInputScanner {
         System.out.println("사다리 높이를 입력하세요.");
         return scanner.nextLine();
     }
+
+    public static String getUserNameForResult() {
+        System.out.println("결과를 보고 싶은 사람은?");
+        return scanner.nextLine();
+    }
 }

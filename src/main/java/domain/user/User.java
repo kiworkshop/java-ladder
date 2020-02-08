@@ -25,6 +25,10 @@ public class User {
         return String.format("%" + NAME_LIMIT_LENGTH + "s", name);
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return name;

@@ -33,6 +33,13 @@ public class Ladder {
         return index;
     }
 
+    public Result getResultFrom(String userName) throws IllegalArgumentException {
+        User targetUser = users.stream().filter(user -> user.getName().equals(userName)).findAny().orElseThrow(IllegalArgumentException::new);
+        int targetIndex = users.indexOf(targetUser);
+        int resultIndex = getResultFrom(targetIndex);
+        return results.get(resultIndex);
+    }
+
     public LadderResult getLadderResult() {
         Map<User, Result> ladderResult = new HashMap<>();
 
