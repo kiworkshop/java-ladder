@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static controller.dto.LadderInputDtoTest.getLadderDataFixture;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderTest {
 
