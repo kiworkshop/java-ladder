@@ -22,7 +22,7 @@ public class LadderController {
 
     public void play() {
         LadderInputDto ladderInputDto = generateLadderData();
-        Ladder ladder = generateLadder(ladderInputDto);
+        Ladder ladder = new Ladder(ladderInputDto, ROW_FACTORY);
         GameOutputView.printLadder(ladder);
         showResult(ladder);
     }
@@ -30,7 +30,6 @@ public class LadderController {
     private LadderInputDto generateLadderData() {
         List<User> users = generateUsers();
         List<Result> results = generateResults();
-        validateResult(users, results);
         Height height = generateHeight();
         return new LadderInputDto(users, results, height);
     }
@@ -47,12 +46,6 @@ public class LadderController {
         return results.stream().map(Result::from).collect(Collectors.toList());
     }
 
-    private void validateResult(List<User> users, List<Result> results) {
-        if (users.size() != results.size()) {
-            throw new IllegalArgumentException();
-        }
-    }
-
     private Height generateHeight() {
         String heightInput = GameInputScanner.getHeight();
         try {
@@ -61,10 +54,6 @@ public class LadderController {
         } catch (NumberFormatException ne) {
             throw new IllegalArgumentException();
         }
-    }
-
-    private Ladder generateLadder(LadderInputDto ladderInputDto) {
-        return new Ladder(ladderInputDto, ROW_FACTORY);
     }
 
     private void showResult(Ladder ladder) {

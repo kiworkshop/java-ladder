@@ -1,6 +1,5 @@
-package game.dto;
+package controller.dto;
 
-import controller.dto.LadderInputDto;
 import domain.ladder.Height;
 import domain.result.Result;
 import domain.user.User;

@@ -18,8 +18,8 @@ public class LadderInputDto {
         this.height = height;
     }
 
-    public int getUserSize() {
-        return users.size();
+    public int getNumberOfSteps() {
+        return users.size() - 1;
     }
 
     public int getHeight() {

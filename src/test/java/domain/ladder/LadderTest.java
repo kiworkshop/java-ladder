@@ -8,8 +8,8 @@ import domain.result.LadderResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static game.dto.LadderInputDtoTest.getLadderDataFixture;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static controller.dto.LadderInputDtoTest.getLadderDataFixture;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderTest {
 
@@ -39,7 +39,7 @@ public class LadderTest {
 
     @Test
     void testLadder() {
-        assertTrue(ladder.getResultFrom(0) == 1);
+        assertThat(ladder.getResultFrom("jaeju"));
     }
 
     @Test

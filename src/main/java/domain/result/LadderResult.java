@@ -12,6 +12,10 @@ public class LadderResult {
         this.ladderResult = ladderResult;
     }
 
+    public Result getResult(User user) {
+        return ladderResult.get(user);
+    }
+
     @Override
     public String toString() {
         return "결과 : " + ladderResult.toString();

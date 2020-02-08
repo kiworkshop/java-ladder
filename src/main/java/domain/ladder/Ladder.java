@@ -18,26 +18,29 @@ public class Ladder {
     private List<Result> results;
 
     public Ladder(LadderInputDto ladderInputDto, RowFactory rowFactory) {
-        int numberOfSteps = ladderInputDto.getUserSize() - 1;
+        int numberOfSteps = ladderInputDto.getNumberOfSteps();
         for (int i = 0; i < ladderInputDto.getHeight(); i++) {
             rows.add(new Row(rowFactory.generateSteps(numberOfSteps)));
         }
         this.users = ladderInputDto.getUsers();
         this.results = ladderInputDto.getResults();
-    }
-
-    public int getResultFrom(int index) {
-        for (Row row : rows) {
-            index = row.getNextIndexFrom(index);
+        if (this.users.size() != this.results.size()) {
+            throw new IllegalArgumentException();
         }
-        return index;
     }
 
     public Result getResultFrom(String userName) throws IllegalArgumentException {
         User targetUser = users.stream().filter(user -> user.getName().equals(userName)).findAny().orElseThrow(IllegalArgumentException::new);
         int targetIndex = users.indexOf(targetUser);
-        int resultIndex = getResultFrom(targetIndex);
+        int resultIndex = getResultIndexFrom(targetIndex);
         return results.get(resultIndex);
+    }
+
+    private int getResultIndexFrom(int index) {
+        for (Row row : rows) {
+            index = row.getNextIndexFrom(index);
+        }
+        return index;
     }
 
     public LadderResult getLadderResult() {
@@ -45,7 +48,7 @@ public class Ladder {
 
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
-            int resultIndex = getResultFrom(i);
+            int resultIndex = getResultIndexFrom(i);
             Result result = results.get(resultIndex);
             ladderResult.put(user, result);
         }
