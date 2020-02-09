@@ -44,6 +44,7 @@ public class LadderController {
             Result result = results.get(resultIndex);
             GameOutputView.printResult(result);
         }
+        GameOutputView.printAllResult(users, ladder, results);
     }
 
 }

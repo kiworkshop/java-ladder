@@ -28,11 +28,11 @@ public class Ladder {
     }
 
     private String getRowsString() {
-        StringBuilder sb = new StringBuilder();
+        List<String> rowsString = new ArrayList<>();
         for (Row row : rows) {
-            sb.append(getRowString(row) + "\n");
+            rowsString.add(getRowString(row));
         }
-        return sb.toString();
+        return String.join("\n", rowsString);
     }
 
     private String getRowString(Row row) {

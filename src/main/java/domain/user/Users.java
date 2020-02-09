@@ -16,6 +16,10 @@ public class Users {
         return users.indexOf(user);
     }
 
+    public User get(int index) {
+        return users.get(index);
+    }
+
     public int size() {
         return users.size();
     }

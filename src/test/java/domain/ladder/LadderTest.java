@@ -1,14 +1,13 @@
 package domain.ladder;
 
-import controller.dto.LadderInputDto;
 import domain.factory.ExistNonExistRowFactory;
 import domain.factory.NonExistRowFactory;
 import domain.factory.RowFactory;
-import domain.result.LadderResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static controller.dto.LadderInputDtoTest.getLadderDataFixture;
+import static domain.ladder.HeightTest.getFiveLevelOfHeightFixture;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderTest {
 
@@ -19,15 +18,13 @@ public class LadderTest {
     private Ladder noStepLadder;
 
     public static Ladder getLadderFixture() {
-        LadderInputDto ladderInputDto = getLadderDataFixture();
-        Ladder ladder = new Ladder(ladderInputDto, EXIST_NON_EXIST_ROW_FACTORY);
-        return ladder;
+        Height height = getFiveLevelOfHeightFixture();
+        return new Ladder(3, height, EXIST_NON_EXIST_ROW_FACTORY);
     }
 
     public static Ladder getNoStepLadderFixtrue() {
-        LadderInputDto ladderInputDto = getLadderDataFixture();
-        Ladder ladder = new Ladder(ladderInputDto, NON_EXIST_ROW_FACTORY);
-        return ladder;
+        Height height = getFiveLevelOfHeightFixture();
+        return new Ladder(3, height, NON_EXIST_ROW_FACTORY);
     }
 
     @BeforeEach
@@ -38,11 +35,11 @@ public class LadderTest {
 
     @Test
     void testLadder() {
-        assertThat(ladder.getResultFrom("jaeju"));
+        assertThat(ladder.getResultIndexFrom(0)).isEqualTo(1);
     }
 
     @Test
-    void testLadderResult() {
-        LadderResult ladderResult = ladder.getLadderResult();
+    void testNoStepLadder() {
+        assertThat(noStepLadder.getResultIndexFrom(0)).isEqualTo(0);
     }
 }
