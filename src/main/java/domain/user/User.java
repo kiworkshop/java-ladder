@@ -27,10 +27,6 @@ public class User {
         return String.format("%" + NAME_LIMIT_LENGTH + "s", name);
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
