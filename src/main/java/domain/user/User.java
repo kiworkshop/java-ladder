@@ -8,6 +8,10 @@ public class User {
 
     private String name;
 
+    private User(String name) {
+        this.name = name;
+    }
+
     public static User from(String name) {
         name = name.trim();
         if (name.isEmpty()) {
@@ -17,10 +21,6 @@ public class User {
             throw new IllegalArgumentException();
         }
         return new User(name);
-    }
-
-    private User(String name) {
-        this.name = name;
     }
 
     public String getFormattedName() {

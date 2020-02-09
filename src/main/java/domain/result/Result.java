@@ -6,6 +6,10 @@ public class Result {
 
     private String result;
 
+    private Result(String result) {
+        this.result = result;
+    }
+
     public static Result from(String result) {
         result = result.trim();
         if (result.isEmpty()) {
@@ -15,10 +19,6 @@ public class Result {
             throw new IllegalArgumentException();
         }
         return new Result(result);
-    }
-
-    private Result(String result) {
-        this.result = result;
     }
 
     public String getFormattedResult() {
